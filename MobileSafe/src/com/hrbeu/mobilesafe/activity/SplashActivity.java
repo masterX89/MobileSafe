@@ -19,7 +19,7 @@ public class SplashActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		tvVersion = (TextView) findViewById(R.id.tv_version);
-		tvVersion.setText("°æ±¾ºÅ:"+getVersionName());
+		tvVersion.setText("version:"+getVersionName());
 	}
 
 	private String getVersionName() {
