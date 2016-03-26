@@ -28,7 +28,7 @@ public class SplashActivity extends Activity {
 
 	private TextView tvVersion;
 	private String mVersionName;	//°æ±¾Ãû
-	private int mVersionCode;		//°æ±¾ºÅ
+	private int mVersionCode;		//
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
