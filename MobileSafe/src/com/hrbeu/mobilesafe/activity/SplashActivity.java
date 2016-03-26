@@ -6,6 +6,9 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.Activity;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -14,10 +17,17 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.hrbeu.mobilesafe.R;
+import com.hrbeu.mobilesafe.utils.StreamUtils;
 
+/**
+ * 
+ * @author Hankai Xia
+ * 
+ */
 public class SplashActivity extends Activity {
 
 	private TextView tvVersion;
+	private String mVersionName;	//版本名
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +36,8 @@ public class SplashActivity extends Activity {
 
 		tvVersion = (TextView) findViewById(R.id.tv_version);
 		tvVersion.setText("版本号:" + getVersionName());
+
+		checkVersion();
 	}
 
 	/**
@@ -42,6 +54,8 @@ public class SplashActivity extends Activity {
 					getPackageName(), 0);
 			int versionCode = packageInfo.versionCode;
 			String versionName = packageInfo.versionName;
+			// 输出结果到LogCat
+			System.out.println("版本号:" + versionCode + ";版本名:" + versionName);
 			return versionName;
 		} catch (NameNotFoundException e) {
 			e.printStackTrace();
@@ -55,6 +69,8 @@ public class SplashActivity extends Activity {
 	private void checkVersion() {
 		// 启动子线程异步加载
 		new Thread() {
+			
+
 			@Override
 			public void run() {
 				try {
@@ -74,12 +90,21 @@ public class SplashActivity extends Activity {
 					int responseCode = conn.getResponseCode();
 					if (responseCode == 200) {
 						InputStream inputStream = conn.getInputStream();
+						String result = StreamUtils.readFromStream(inputStream);
+						// 输出结果到LogCat
+						System.out.println("网络结果：" + result);
+						// 解析json
+						JSONObject jo = new JSONObject(result);
+						mVersionName = jo.getString("versionName");
 					}
 				} catch (MalformedURLException e) {
 					// URL错误
 					e.printStackTrace();
 				} catch (IOException e) {
 					// 网络错误
+					e.printStackTrace();
+				} catch (JSONException e) {
+					// json解析异常
 					e.printStackTrace();
 				}
 			}
