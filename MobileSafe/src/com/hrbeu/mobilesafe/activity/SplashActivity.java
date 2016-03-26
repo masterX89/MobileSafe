@@ -28,6 +28,7 @@ public class SplashActivity extends Activity {
 
 	private TextView tvVersion;
 	private String mVersionName;	//版本名
+	private int mVersionCode;		//版本号
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +72,7 @@ public class SplashActivity extends Activity {
 		new Thread() {
 			
 
+
 			@Override
 			public void run() {
 				try {
@@ -96,6 +98,7 @@ public class SplashActivity extends Activity {
 						// 解析json
 						JSONObject jo = new JSONObject(result);
 						mVersionName = jo.getString("versionName");
+						mVersionCode = jo.getInt("versionCode");
 					}
 				} catch (MalformedURLException e) {
 					// URL错误
