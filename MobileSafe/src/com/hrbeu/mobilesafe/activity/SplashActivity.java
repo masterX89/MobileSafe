@@ -10,11 +10,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hrbeu.mobilesafe.R;
 import com.hrbeu.mobilesafe.utils.StreamUtils;
@@ -26,9 +32,43 @@ import com.hrbeu.mobilesafe.utils.StreamUtils;
  */
 public class SplashActivity extends Activity {
 
+	protected static final int CODE_UPDATE_DIALOG = 0;
+	protected static final int CODE_UPDATE_ERROR = 1;
+	protected static final int CODE_NET_ERROR = 2;
+	protected static final int CODE_JSON_ERROR = 3;
+
 	private TextView tvVersion;
-	private String mVersionName;	//版本名
-	private int mVersionCode;		//版本号
+
+	// 服务器返回信息
+	private String mVersionName; // 版本名
+	private int mVersionCode; // 版本号
+	private String mDesc; // 版本描述
+	private String mDownLoadUrl; // 下载地址
+
+	private Handler mHandler = new Handler() {
+		public void handleMessage(android.os.Message msg) {
+			switch (msg.what) {
+			case CODE_UPDATE_DIALOG:
+				showUpdateDailog();
+				break;
+			case CODE_UPDATE_ERROR:
+				Toast.makeText(SplashActivity.this, "url错误", Toast.LENGTH_SHORT)
+						.show();
+				break;
+			case CODE_NET_ERROR:
+				Toast.makeText(SplashActivity.this, "网络错误", Toast.LENGTH_SHORT)
+						.show();
+				break;
+			case CODE_JSON_ERROR:
+				Toast.makeText(SplashActivity.this, "数据解析错误",
+						Toast.LENGTH_SHORT).show();
+				break;
+
+			default:
+				break;
+			}
+		};
+	};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +96,7 @@ public class SplashActivity extends Activity {
 			int versionCode = packageInfo.versionCode;
 			String versionName = packageInfo.versionName;
 			// 输出结果到LogCat
-			System.out.println("版本号:" + versionCode + ";版本名:" + versionName);
+			// System.out.println("版本号:" + versionCode + ";版本名:" + versionName);
 			return versionName;
 		} catch (NameNotFoundException e) {
 			e.printStackTrace();
@@ -65,21 +105,40 @@ public class SplashActivity extends Activity {
 	}
 
 	/**
+	 * 获取本地版本号
+	 * 
+	 * @return 版本号
+	 */
+	private int getVersionCode() {
+
+		PackageManager packageManager = getPackageManager();
+
+		try {
+			PackageInfo packageInfo = packageManager.getPackageInfo(
+					getPackageName(), 0);
+			int versionCode = packageInfo.versionCode;
+			return versionCode;
+		} catch (NameNotFoundException e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
+
+	/**
 	 * 从服务器获取版本信息进行校验
 	 */
 	private void checkVersion() {
 		// 启动子线程异步加载
 		new Thread() {
-			
-
 
 			@Override
 			public void run() {
+				Message msg = Message.obtain();
+				HttpURLConnection conn = null;
 				try {
 					// 本机地址：localhost，模拟器访问本机地址：10.0.2.2
 					URL url = new URL("http://10.0.2.2:8080/update.json");
-					HttpURLConnection conn = (HttpURLConnection) url
-							.openConnection();
+					conn = (HttpURLConnection) url.openConnection();
 					// 设置请求方法：GET
 					conn.setRequestMethod("GET");
 					// 设置连接超时
@@ -94,21 +153,43 @@ public class SplashActivity extends Activity {
 						InputStream inputStream = conn.getInputStream();
 						String result = StreamUtils.readFromStream(inputStream);
 						// 输出结果到LogCat
-						System.out.println("网络结果：" + result);
+						// System.out.println("网络结果：" + result);
 						// 解析json
 						JSONObject jo = new JSONObject(result);
 						mVersionName = jo.getString("versionName");
 						mVersionCode = jo.getInt("versionCode");
+						mDesc = jo.getString("description");
+						mDownLoadUrl = jo.getString("downloadUrl");
+						// 输出json解析结果
+						/*
+						 * System.out.println("版本名：" + mVersionName + ",版本号：" +
+						 * mVersionCode + ",版本描述：" + mDesc + ",下载地址：" +
+						 * mDownLoadUrl);
+						 */
+						// 判斷是否有更新
+						if (mVersionCode > getVersionCode()) {
+							// 服务器的VersionCode大于本地的VersionCode
+							// 说明有更新，弹出升级对话框
+							msg.what = CODE_UPDATE_DIALOG;
+						}
 					}
 				} catch (MalformedURLException e) {
 					// URL错误
+					msg.what = CODE_UPDATE_ERROR;
 					e.printStackTrace();
 				} catch (IOException e) {
 					// 网络错误
+					msg.what = CODE_NET_ERROR;
 					e.printStackTrace();
 				} catch (JSONException e) {
 					// json解析异常
+					msg.what = CODE_JSON_ERROR;
 					e.printStackTrace();
+				} finally {
+					mHandler.sendMessage(msg);
+					if (conn != null) {
+						conn.disconnect();
+					}
 				}
 			}
 
@@ -116,4 +197,27 @@ public class SplashActivity extends Activity {
 
 	}
 
+	/**
+	 * 升级对话框
+	 */
+	protected void showUpdateDailog() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle("最新版本" + mVersionName);
+		builder.setMessage(mDesc);
+		builder.setPositiveButton("立即更新", new OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				System.out.println("立即更新");
+			}
+		});
+		builder.setNegativeButton("以后再说", new OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				System.out.println("以后再说");
+			}
+		});
+		builder.show();
+	}
 }
