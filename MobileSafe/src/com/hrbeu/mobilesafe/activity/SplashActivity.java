@@ -13,6 +13,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -36,6 +37,7 @@ public class SplashActivity extends Activity {
 	protected static final int CODE_UPDATE_ERROR = 1;
 	protected static final int CODE_NET_ERROR = 2;
 	protected static final int CODE_JSON_ERROR = 3;
+	protected static final int CODE_ENTER_HOME = 4;
 
 	private TextView tvVersion;
 
@@ -54,14 +56,20 @@ public class SplashActivity extends Activity {
 			case CODE_UPDATE_ERROR:
 				Toast.makeText(SplashActivity.this, "url错误", Toast.LENGTH_SHORT)
 						.show();
+				enterHome();
 				break;
 			case CODE_NET_ERROR:
 				Toast.makeText(SplashActivity.this, "网络错误", Toast.LENGTH_SHORT)
 						.show();
+				enterHome();
 				break;
 			case CODE_JSON_ERROR:
 				Toast.makeText(SplashActivity.this, "数据解析错误",
 						Toast.LENGTH_SHORT).show();
+				enterHome();
+				break;
+			case CODE_ENTER_HOME:
+				enterHome();
 				break;
 
 			default:
@@ -73,7 +81,7 @@ public class SplashActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_splash);
 
 		tvVersion = (TextView) findViewById(R.id.tv_version);
 		tvVersion.setText("版本号:" + getVersionName());
@@ -128,6 +136,7 @@ public class SplashActivity extends Activity {
 	 * 从服务器获取版本信息进行校验
 	 */
 	private void checkVersion() {
+		final long startTime = System.currentTimeMillis();
 		// 启动子线程异步加载
 		new Thread() {
 
@@ -171,6 +180,8 @@ public class SplashActivity extends Activity {
 							// 服务器的VersionCode大于本地的VersionCode
 							// 说明有更新，弹出升级对话框
 							msg.what = CODE_UPDATE_DIALOG;
+						} else {
+							msg.what = CODE_ENTER_HOME;
 						}
 					}
 				} catch (MalformedURLException e) {
@@ -186,6 +197,16 @@ public class SplashActivity extends Activity {
 					msg.what = CODE_JSON_ERROR;
 					e.printStackTrace();
 				} finally {
+					long endTime = System.currentTimeMillis();
+					long timeUsed = endTime - startTime;// 访问网络花费的时间
+					if (timeUsed < 2000) {
+						// 保证splash展示2秒
+						try {
+							Thread.sleep(2000 - timeUsed);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
 					mHandler.sendMessage(msg);
 					if (conn != null) {
 						conn.disconnect();
@@ -212,12 +233,21 @@ public class SplashActivity extends Activity {
 			}
 		});
 		builder.setNegativeButton("以后再说", new OnClickListener() {
-			
+
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				System.out.println("以后再说");
+				enterHome();
 			}
 		});
 		builder.show();
+	}
+
+	/**
+	 * 进入主界面
+	 */
+	private void enterHome() {
+		Intent intent = new Intent(this, HomeActivity.class);
+		startActivity(intent);
+		finish();
 	}
 }
