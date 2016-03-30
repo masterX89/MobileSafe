@@ -1,5 +1,6 @@
 package com.hrbeu.mobilesafe.activity;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -18,6 +19,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.widget.TextView;
@@ -25,6 +27,10 @@ import android.widget.Toast;
 
 import com.hrbeu.mobilesafe.R;
 import com.hrbeu.mobilesafe.utils.StreamUtils;
+import com.lidroid.xutils.HttpUtils;
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.ResponseInfo;
+import com.lidroid.xutils.http.callback.RequestCallBack;
 
 /**
  * 
@@ -170,11 +176,10 @@ public class SplashActivity extends Activity {
 						mDesc = jo.getString("description");
 						mDownLoadUrl = jo.getString("downloadUrl");
 						// 输出json解析结果
-						/*
-						 * System.out.println("版本名：" + mVersionName + ",版本号：" +
-						 * mVersionCode + ",版本描述：" + mDesc + ",下载地址：" +
-						 * mDownLoadUrl);
-						 */
+						System.out.println("版本名：" + mVersionName + ",版本号："
+								+ mVersionCode + ",版本描述：" + mDesc + ",下载地址："
+								+ mDownLoadUrl);
+
 						// 判斷是否有更新
 						if (mVersionCode > getVersionCode()) {
 							// 服务器的VersionCode大于本地的VersionCode
@@ -230,6 +235,7 @@ public class SplashActivity extends Activity {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				System.out.println("立即更新");
+				download();
 			}
 		});
 		builder.setNegativeButton("以后再说", new OnClickListener() {
@@ -240,6 +246,45 @@ public class SplashActivity extends Activity {
 			}
 		});
 		builder.show();
+	}
+
+	/**
+	 * 下载apk文件
+	 */
+	protected void download() {
+		if (Environment.getExternalStorageState().equals(
+				Environment.MEDIA_MOUNTED)) {
+			String target = Environment.getExternalStorageDirectory()
+					+ "/update.apk";
+			// 使用XUtils
+			HttpUtils utils = new HttpUtils();
+			utils.download(mDownLoadUrl, target, new RequestCallBack<File>() {
+
+				// 下载文件的进度
+				@Override
+				public void onLoading(long total, long current,
+						boolean isUploading) {
+					super.onLoading(total, current, isUploading);
+					System.out.println("下载进度" + current + "/" + total);
+				}
+
+				// 下载成功
+				@Override
+				public void onSuccess(ResponseInfo<File> arg0) {
+					System.out.println("下载成功");
+				}
+
+				// 下载失败
+				@Override
+				public void onFailure(HttpException arg0, String arg1) {
+					Toast.makeText(SplashActivity.this, "下载失败",
+							Toast.LENGTH_LONG).show();
+				}
+			});
+		} else {
+			Toast.makeText(SplashActivity.this, "没有找到sd卡", Toast.LENGTH_LONG)
+					.show();
+		}
 	}
 
 	/**
