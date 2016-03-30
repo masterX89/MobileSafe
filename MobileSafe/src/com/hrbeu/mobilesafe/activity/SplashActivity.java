@@ -22,6 +22,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +47,7 @@ public class SplashActivity extends Activity {
 	protected static final int CODE_ENTER_HOME = 4;
 
 	private TextView tvVersion;
+	private TextView tvProgress;// 下载进度
 
 	// 服务器返回信息
 	private String mVersionName; // 版本名
@@ -88,10 +90,9 @@ public class SplashActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
-
 		tvVersion = (TextView) findViewById(R.id.tv_version);
 		tvVersion.setText("版本号:" + getVersionName());
-
+		tvProgress = (TextView) findViewById(R.id.tv_progress);// 默认隐藏
 		checkVersion();
 	}
 
@@ -242,6 +243,7 @@ public class SplashActivity extends Activity {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
+				System.out.println("以后再说");
 				enterHome();
 			}
 		});
@@ -254,6 +256,7 @@ public class SplashActivity extends Activity {
 	protected void download() {
 		if (Environment.getExternalStorageState().equals(
 				Environment.MEDIA_MOUNTED)) {
+			tvProgress.setVisibility(View.VISIBLE);// 显示进度
 			String target = Environment.getExternalStorageDirectory()
 					+ "/update.apk";
 			// 使用XUtils
@@ -266,12 +269,14 @@ public class SplashActivity extends Activity {
 						boolean isUploading) {
 					super.onLoading(total, current, isUploading);
 					System.out.println("下载进度" + current + "/" + total);
+					tvProgress.setText("下载进度" + current * 100 / total + "%");
 				}
 
 				// 下载成功
 				@Override
 				public void onSuccess(ResponseInfo<File> arg0) {
 					System.out.println("下载成功");
+					// 跳转到系统的下载页面
 				}
 
 				// 下载失败
