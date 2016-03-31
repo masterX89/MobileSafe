@@ -13,11 +13,13 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -231,8 +233,8 @@ public class SplashActivity extends Activity {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setTitle("最新版本" + mVersionName);
 		builder.setMessage(mDesc);
-		// 设置对话框点击返回键不关闭
-		builder.setCancelable(false);
+		// 设置对话框点击返回键不关闭，用户体验过低
+		// builder.setCancelable(false);
 		// 设置确定按钮的点击事件
 		builder.setPositiveButton("立即更新", new OnClickListener() {
 
@@ -248,6 +250,12 @@ public class SplashActivity extends Activity {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				System.out.println("以后再说");
+				enterHome();
+			}
+		});
+		builder.setOnCancelListener(new OnCancelListener() {
+			@Override
+			public void onCancel(DialogInterface dialog) {
 				enterHome();
 			}
 		});
@@ -282,6 +290,14 @@ public class SplashActivity extends Activity {
 				public void onSuccess(ResponseInfo<File> arg0) {
 					System.out.println("下载成功");
 					// 跳转到系统的下载页面
+					Intent intent = new Intent(Intent.ACTION_VIEW);
+					intent.addCategory(Intent.CATEGORY_DEFAULT);
+					// Android 6.0编译失败，应该使用Xutils3
+					intent.setDataAndType(Uri.fromFile(arg0.result),
+							"application/vnd.android.package-archive");
+					// startActivity(intent);
+					// 用戶取消安裝会返回结果，回调方法onActivityResult
+					startActivityForResult(intent, 0);
 				}
 
 				// 下载失败
@@ -295,6 +311,13 @@ public class SplashActivity extends Activity {
 			Toast.makeText(SplashActivity.this, "没有找到sd卡", Toast.LENGTH_LONG)
 					.show();
 		}
+	}
+
+	// 用戶取消安裝会返回结果，回调方法onActivityResult
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		enterHome();
+		super.onActivityResult(requestCode, resultCode, data);
 	}
 
 	/**
