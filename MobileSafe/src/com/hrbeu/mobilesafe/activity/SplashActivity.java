@@ -231,6 +231,9 @@ public class SplashActivity extends Activity {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setTitle("最新版本" + mVersionName);
 		builder.setMessage(mDesc);
+		// 设置对话框点击返回键不关闭
+		builder.setCancelable(false);
+		// 设置确定按钮的点击事件
 		builder.setPositiveButton("立即更新", new OnClickListener() {
 
 			@Override
@@ -239,6 +242,7 @@ public class SplashActivity extends Activity {
 				download();
 			}
 		});
+		// 设置取消按钮的点击事件
 		builder.setNegativeButton("以后再说", new OnClickListener() {
 
 			@Override
@@ -247,6 +251,7 @@ public class SplashActivity extends Activity {
 				enterHome();
 			}
 		});
+		// 显示对话框
 		builder.show();
 	}
 
