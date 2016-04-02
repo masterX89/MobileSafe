@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.hrbeu.mobilesafe.R;
 
 /**
- * Ö÷Ò³Ãæ
+ * ä¸»é¡µé¢
  * 
  * @author Hankai Xia
  * 
@@ -20,8 +20,8 @@ import com.hrbeu.mobilesafe.R;
 public class HomeActivity extends Activity {
 
 	private GridView gvHome;
-	private String[] mItems = new String[] { "ÊÖ»ú·ÀµÁ", "Í¨Ñ¶ÎÀÊ¿", "Èí¼ş¹ÜÀí", "½ø³Ì¹ÜÀí",
-			"Á÷Á¿Í³¼Æ", "ÊÖ»úÉ±¶¾", "»º´æÇåÀí", "¸ß¼¶¹¤¾ß", "ÉèÖÃÖĞĞÄ" };
+	private String[] mItems = new String[] { "æ‰‹æœºé˜²ç›—", "é€šè®¯å«å£«", "è½¯ä»¶ç®¡ç†", "è¿›ç¨‹ç®¡ç†",
+			"æµé‡ç»Ÿè®¡", "æ‰‹æœºæ€æ¯’", "ç¼“å­˜æ¸…ç†", "é«˜çº§å·¥å…·", "è®¾ç½®ä¸­å¿ƒ" };
 
 	private int[] mPics = new int[] { R.drawable.home_safe,
 			R.drawable.home_callmsgsafe, R.drawable.home_apps,

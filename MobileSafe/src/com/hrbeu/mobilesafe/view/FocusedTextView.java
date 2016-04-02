@@ -1,4 +1,4 @@
-package view;
+package com.hrbeu.mobilesafe.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -6,14 +6,14 @@ import android.view.ViewDebug.ExportedProperty;
 import android.widget.TextView;
 
 /**
- * »ñÈ¡½¹µãµÄTextView
+ * è·å–ç„¦ç‚¹çš„TextView
  * 
  * @author Hankai Xia
  * 
  */
 public class FocusedTextView extends TextView {
 	/**
-	 * ÓĞstyleÑùÊ½µÄÊ±ºòÓÃ´Ë·½·¨
+	 * æœ‰styleæ ·å¼æ—¶ä½¿ç”¨æ­¤æ–¹æ³•
 	 * 
 	 * @param context
 	 * @param attrs
@@ -24,7 +24,7 @@ public class FocusedTextView extends TextView {
 	}
 
 	/**
-	 * ÓĞÊôĞÔÊ±ÓÃ´Ë·½·¨
+	 * æœ‰å±æ€§æ—¶ä½¿ç”¨æ­¤æ–¹æ³•
 	 * 
 	 * @param context
 	 * @param attrs
@@ -34,7 +34,7 @@ public class FocusedTextView extends TextView {
 	}
 
 	/**
-	 * ÓÃ´úÂënew¶ÔÏóÊ±£¬ÓÃ´Ë·½·¨
+	 * ç”¨ä»£ç newå¯¹è±¡æ—¶ä½¿ç”¨æ­¤æ–¹æ³•
 	 * 
 	 * @param context
 	 */
@@ -43,7 +43,7 @@ public class FocusedTextView extends TextView {
 	}
 
 	/**
-	 * ±íÊ¾ÓĞÃ»ÓĞ»ñÈ¡½¹µã ÅÜÂíµÆÒªÔËĞĞ£¬Ê×ÏÈµ÷ÓÃµ÷ÓÃ´Ëº¯ÊıÅĞ¶ÏÊÇ·ñÓĞ½¹µã£¬ÊÇtrueÔòÓĞĞ§¹û
+	 * è¡¨ç¤ºæœ‰æ²¡æœ‰è·å–ç„¦ç‚¹ï¼Œè·‘é©¬ç¯è¦è¿è¡Œï¼Œé¦–å…ˆè°ƒç”¨æ­¤å‡½æ•°åˆ¤æ–­æ˜¯å¦æœ‰ç„¦ç‚¹ï¼Œæ˜¯trueæ—¶ï¼Œè·‘é©¬ç¯æ‰ä¼šè¿è¡Œ
 	 */
 	@Override
 	@ExportedProperty(category = "focus")

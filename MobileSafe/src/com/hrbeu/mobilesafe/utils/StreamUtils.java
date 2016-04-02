@@ -5,14 +5,14 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * 读取流的工具
+ * 璇诲彇娴佺殑宸ュ叿
  * 
  * @author Hankai Xia
  * 
  */
 public class StreamUtils {
 	/**
-	 * 将输入流读取成String之后返回
+	 * 灏嗚緭鍏ユ祦璇诲彇鎴怱tring涔嬪悗杩斿洖
 	 * 
 	 * @param in
 	 * @return

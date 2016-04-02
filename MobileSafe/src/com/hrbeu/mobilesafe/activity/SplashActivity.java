@@ -49,13 +49,13 @@ public class SplashActivity extends Activity {
 	protected static final int CODE_ENTER_HOME = 4;
 
 	private TextView tvVersion;
-	private TextView tvProgress;// ÏÂÔØ½ø¶È
+	private TextView tvProgress;// ä¸‹è½½è¿›åº¦
 
-	// ·şÎñÆ÷·µ»ØĞÅÏ¢
-	private String mVersionName; // °æ±¾Ãû
-	private int mVersionCode; // °æ±¾ºÅ
-	private String mDesc; // °æ±¾ÃèÊö
-	private String mDownLoadUrl; // ÏÂÔØµØÖ·
+	// æœåŠ¡å™¨è¿”å›ä¿¡æ¯
+	private String mVersionName; // ç‰ˆæœ¬å
+	private int mVersionCode; // ç‰ˆæœ¬å·
+	private String mDesc; // ç‰ˆæœ¬æè¿°
+	private String mDownLoadUrl; // ä¸‹è½½åœ°å€
 
 	private Handler mHandler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
@@ -64,17 +64,17 @@ public class SplashActivity extends Activity {
 				showUpdateDailog();
 				break;
 			case CODE_UPDATE_ERROR:
-				Toast.makeText(SplashActivity.this, "url´íÎó", Toast.LENGTH_SHORT)
+				Toast.makeText(SplashActivity.this, "urlé”™è¯¯", Toast.LENGTH_SHORT)
 						.show();
 				enterHome();
 				break;
 			case CODE_NET_ERROR:
-				Toast.makeText(SplashActivity.this, "ÍøÂç´íÎó", Toast.LENGTH_SHORT)
+				Toast.makeText(SplashActivity.this, "ç½‘ç»œé”™è¯¯", Toast.LENGTH_SHORT)
 						.show();
 				enterHome();
 				break;
 			case CODE_JSON_ERROR:
-				Toast.makeText(SplashActivity.this, "Êı¾İ½âÎö´íÎó",
+				Toast.makeText(SplashActivity.this, "æ•°æ®è§£æé”™è¯¯",
 						Toast.LENGTH_SHORT).show();
 				enterHome();
 				break;
@@ -93,15 +93,15 @@ public class SplashActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
 		tvVersion = (TextView) findViewById(R.id.tv_version);
-		tvVersion.setText("°æ±¾ºÅ:" + getVersionName());
-		tvProgress = (TextView) findViewById(R.id.tv_progress);// Ä¬ÈÏÒş²Ø
+		tvVersion.setText("ç‰ˆæœ¬å·:" + getVersionName());
+		tvProgress = (TextView) findViewById(R.id.tv_progress);// é»˜è®¤éšè—
 		checkVersion();
 	}
 
 	/**
-	 * »ñÈ¡°æ±¾Ãû³Æ
+	 * è·å–ç‰ˆæœ¬åç§°
 	 * 
-	 * @return °æ±¾Ãû³Æ
+	 * @return ç‰ˆæœ¬åç§°
 	 */
 	private String getVersionName() {
 
@@ -112,8 +112,8 @@ public class SplashActivity extends Activity {
 					getPackageName(), 0);
 			int versionCode = packageInfo.versionCode;
 			String versionName = packageInfo.versionName;
-			// Êä³ö½á¹ûµ½LogCat
-			// System.out.println("°æ±¾ºÅ:" + versionCode + ";°æ±¾Ãû:" + versionName);
+			// è¾“å‡ºç»“æœåˆ°LogCat
+			// System.out.println("ç‰ˆæœ¬å·:" + versionCode + ";ç‰ˆæœ¬å:" + versionName);
 			return versionName;
 		} catch (NameNotFoundException e) {
 			e.printStackTrace();
@@ -122,9 +122,9 @@ public class SplashActivity extends Activity {
 	}
 
 	/**
-	 * »ñÈ¡±¾µØ°æ±¾ºÅ
+	 * è·å–æœ¬åœ°ç‰ˆæœ¬å·
 	 * 
-	 * @return °æ±¾ºÅ
+	 * @return ç‰ˆæœ¬å·
 	 */
 	private int getVersionCode() {
 
@@ -142,11 +142,11 @@ public class SplashActivity extends Activity {
 	}
 
 	/**
-	 * ´Ó·şÎñÆ÷»ñÈ¡°æ±¾ĞÅÏ¢½øĞĞĞ£Ñé
+	 * ä»æœåŠ¡å™¨è·å–ç‰ˆæœ¬ä¿¡æ¯è¿›è¡Œæ ¡éªŒ
 	 */
 	private void checkVersion() {
 		final long startTime = System.currentTimeMillis();
-		// Æô¶¯×ÓÏß³ÌÒì²½¼ÓÔØ
+		// å¯åŠ¨å­çº¿ç¨‹å¼‚æ­¥åŠ è½½
 		new Thread() {
 
 			@Override
@@ -154,61 +154,61 @@ public class SplashActivity extends Activity {
 				Message msg = Message.obtain();
 				HttpURLConnection conn = null;
 				try {
-					// ±¾»úµØÖ·£ºlocalhost£¬Ä£ÄâÆ÷·ÃÎÊ±¾»úµØÖ·£º10.0.2.2
+					// æœ¬æœºåœ°å€ï¼šlocalhostï¼Œæ¨¡æ‹Ÿå™¨è®¿é—®æœ¬æœºåœ°å€ï¼š10.0.2.2
 					URL url = new URL("http://10.0.2.2:8080/update.json");
 					conn = (HttpURLConnection) url.openConnection();
-					// ÉèÖÃÇëÇó·½·¨£ºGET
+					// è®¾ç½®è¯·æ±‚æ–¹æ³•ï¼šGET
 					conn.setRequestMethod("GET");
-					// ÉèÖÃÁ¬½Ó³¬Ê±
+					// è®¾ç½®è¿æ¥è¶…æ—¶
 					conn.setConnectTimeout(5000);
-					// ÉèÖÃÏìÓ¦³¬Ê±
+					// è®¾ç½®å“åº”è¶…æ—¶
 					conn.setReadTimeout(5000);
-					// Á¬½Ó·şÎñÆ÷
+					// è¿æ¥æœåŠ¡å™¨
 					conn.connect();
-					// »ñÈ¡ÏìÓ¦Âë
+					// è·å–å“åº”ç 
 					int responseCode = conn.getResponseCode();
 					if (responseCode == 200) {
 						InputStream inputStream = conn.getInputStream();
 						String result = StreamUtils.readFromStream(inputStream);
-						// Êä³ö½á¹ûµ½LogCat
-						// System.out.println("ÍøÂç½á¹û£º" + result);
-						// ½âÎöjson
+						// è¾“å‡ºç»“æœåˆ°LogCat
+						// System.out.println("ç½‘ç»œç»“æœï¼š" + result);
+						// è§£æjson
 						JSONObject jo = new JSONObject(result);
 						mVersionName = jo.getString("versionName");
 						mVersionCode = jo.getInt("versionCode");
 						mDesc = jo.getString("description");
 						mDownLoadUrl = jo.getString("downloadUrl");
-						// Êä³öjson½âÎö½á¹û
-						System.out.println("°æ±¾Ãû£º" + mVersionName + ",°æ±¾ºÅ£º"
-								+ mVersionCode + ",°æ±¾ÃèÊö£º" + mDesc + ",ÏÂÔØµØÖ·£º"
+						// è¾“å‡ºjsonè§£æç»“æœ
+						System.out.println("ç‰ˆæœ¬åï¼š" + mVersionName + ",ç‰ˆæœ¬å·ï¼š"
+								+ mVersionCode + ",ç‰ˆæœ¬æè¿°ï¼š" + mDesc + ",ä¸‹è½½åœ°å€ï¼š"
 								+ mDownLoadUrl);
 
-						// ÅĞ”àÊÇ·ñÓĞ¸üĞÂ
+						// åˆ¤æ–·æ˜¯å¦æœ‰æ›´æ–°
 						if (mVersionCode > getVersionCode()) {
-							// ·şÎñÆ÷µÄVersionCode´óÓÚ±¾µØµÄVersionCode
-							// ËµÃ÷ÓĞ¸üĞÂ£¬µ¯³öÉı¼¶¶Ô»°¿ò
+							// æœåŠ¡å™¨çš„VersionCodeå¤§äºæœ¬åœ°çš„VersionCode
+							// è¯´æ˜æœ‰æ›´æ–°ï¼Œå¼¹å‡ºå‡çº§å¯¹è¯æ¡†
 							msg.what = CODE_UPDATE_DIALOG;
 						} else {
 							msg.what = CODE_ENTER_HOME;
 						}
 					}
 				} catch (MalformedURLException e) {
-					// URL´íÎó
+					// URLé”™è¯¯
 					msg.what = CODE_UPDATE_ERROR;
 					e.printStackTrace();
 				} catch (IOException e) {
-					// ÍøÂç´íÎó
+					// ç½‘ç»œé”™è¯¯
 					msg.what = CODE_NET_ERROR;
 					e.printStackTrace();
 				} catch (JSONException e) {
-					// json½âÎöÒì³£
+					// jsonè§£æå¼‚å¸¸
 					msg.what = CODE_JSON_ERROR;
 					e.printStackTrace();
 				} finally {
 					long endTime = System.currentTimeMillis();
-					long timeUsed = endTime - startTime;// ·ÃÎÊÍøÂç»¨·ÑµÄÊ±¼ä
+					long timeUsed = endTime - startTime;// è®¿é—®ç½‘ç»œèŠ±è´¹çš„æ—¶é—´
 					if (timeUsed < 2000) {
-						// ±£Ö¤splashÕ¹Ê¾2Ãë
+						// ä¿è¯splashå±•ç¤º2ç§’
 						try {
 							Thread.sleep(2000 - timeUsed);
 						} catch (InterruptedException e) {
@@ -227,29 +227,29 @@ public class SplashActivity extends Activity {
 	}
 
 	/**
-	 * Éı¼¶¶Ô»°¿ò
+	 * å‡çº§å¯¹è¯æ¡†
 	 */
 	protected void showUpdateDailog() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle("×îĞÂ°æ±¾" + mVersionName);
+		builder.setTitle("æœ€æ–°ç‰ˆæœ¬" + mVersionName);
 		builder.setMessage(mDesc);
-		// ÉèÖÃ¶Ô»°¿òµã»÷·µ»Ø¼ü²»¹Ø±Õ£¬ÓÃ»§ÌåÑé¹ıµÍ
+		// è®¾ç½®å¯¹è¯æ¡†ç‚¹å‡»è¿”å›é”®ä¸å…³é—­ï¼Œç”¨æˆ·ä½“éªŒè¿‡ä½
 		// builder.setCancelable(false);
-		// ÉèÖÃÈ·¶¨°´Å¥µÄµã»÷ÊÂ¼ş
-		builder.setPositiveButton("Á¢¼´¸üĞÂ", new OnClickListener() {
+		// è®¾ç½®ç¡®å®šæŒ‰é’®çš„ç‚¹å‡»äº‹ä»¶
+		builder.setPositiveButton("ç«‹å³æ›´æ–°", new OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				System.out.println("Á¢¼´¸üĞÂ");
+				System.out.println("ç«‹å³æ›´æ–°");
 				download();
 			}
 		});
-		// ÉèÖÃÈ¡Ïû°´Å¥µÄµã»÷ÊÂ¼ş
-		builder.setNegativeButton("ÒÔºóÔÙËµ", new OnClickListener() {
+		// è®¾ç½®å–æ¶ˆæŒ‰é’®çš„ç‚¹å‡»äº‹ä»¶
+		builder.setNegativeButton("ä»¥åå†è¯´", new OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				System.out.println("ÒÔºóÔÙËµ");
+				System.out.println("ä»¥åå†è¯´");
 				enterHome();
 			}
 		});
@@ -259,61 +259,61 @@ public class SplashActivity extends Activity {
 				enterHome();
 			}
 		});
-		// ÏÔÊ¾¶Ô»°¿ò
+		// æ˜¾ç¤ºå¯¹è¯æ¡†
 		builder.show();
 	}
 
 	/**
-	 * ÏÂÔØapkÎÄ¼ş
+	 * ä¸‹è½½apkæ–‡ä»¶
 	 */
 	protected void download() {
 		if (Environment.getExternalStorageState().equals(
 				Environment.MEDIA_MOUNTED)) {
-			tvProgress.setVisibility(View.VISIBLE);// ÏÔÊ¾½ø¶È
+			tvProgress.setVisibility(View.VISIBLE);// æ˜¾ç¤ºè¿›åº¦
 			String target = Environment.getExternalStorageDirectory()
 					+ "/update.apk";
-			// Ê¹ÓÃXUtils
+			// ä½¿ç”¨XUtils
 			HttpUtils utils = new HttpUtils();
 			utils.download(mDownLoadUrl, target, new RequestCallBack<File>() {
 
-				// ÏÂÔØÎÄ¼şµÄ½ø¶È
+				// ä¸‹è½½æ–‡ä»¶çš„è¿›åº¦
 				@Override
 				public void onLoading(long total, long current,
 						boolean isUploading) {
 					super.onLoading(total, current, isUploading);
-					System.out.println("ÏÂÔØ½ø¶È" + current + "/" + total);
-					tvProgress.setText("ÏÂÔØ½ø¶È" + current * 100 / total + "%");
+					System.out.println("ä¸‹è½½è¿›åº¦" + current + "/" + total);
+					tvProgress.setText("ä¸‹è½½è¿›åº¦" + current * 100 / total + "%");
 				}
 
-				// ÏÂÔØ³É¹¦
+				// ä¸‹è½½æˆåŠŸ
 				@Override
 				public void onSuccess(ResponseInfo<File> arg0) {
-					System.out.println("ÏÂÔØ³É¹¦");
-					// Ìø×ªµ½ÏµÍ³µÄÏÂÔØÒ³Ãæ
+					System.out.println("ä¸‹è½½æˆåŠŸ");
+					// è·³è½¬åˆ°ç³»ç»Ÿçš„ä¸‹è½½é¡µé¢
 					Intent intent = new Intent(Intent.ACTION_VIEW);
 					intent.addCategory(Intent.CATEGORY_DEFAULT);
-					// Android 6.0±àÒëÊ§°Ü£¬Ó¦¸ÃÊ¹ÓÃXutils3
+					// Android 6.0ç¼–è¯‘å¤±è´¥ï¼Œåº”è¯¥ä½¿ç”¨Xutils3
 					intent.setDataAndType(Uri.fromFile(arg0.result),
 							"application/vnd.android.package-archive");
 					// startActivity(intent);
-					// ÓÃ‘ôÈ¡Ïû°²Ñb»á·µ»Ø½á¹û£¬»Øµ÷·½·¨onActivityResult
+					// ç”¨æˆ¶å–æ¶ˆå®‰è£ä¼šè¿”å›ç»“æœï¼Œå›è°ƒæ–¹æ³•onActivityResult
 					startActivityForResult(intent, 0);
 				}
 
-				// ÏÂÔØÊ§°Ü
+				// ä¸‹è½½å¤±è´¥
 				@Override
 				public void onFailure(HttpException arg0, String arg1) {
-					Toast.makeText(SplashActivity.this, "ÏÂÔØÊ§°Ü",
+					Toast.makeText(SplashActivity.this, "ä¸‹è½½å¤±è´¥",
 							Toast.LENGTH_LONG).show();
 				}
 			});
 		} else {
-			Toast.makeText(SplashActivity.this, "Ã»ÓĞÕÒµ½sd¿¨", Toast.LENGTH_LONG)
+			Toast.makeText(SplashActivity.this, "æ²¡æœ‰æ‰¾åˆ°sdå¡", Toast.LENGTH_LONG)
 					.show();
 		}
 	}
 
-	// ÓÃ‘ôÈ¡Ïû°²Ñb»á·µ»Ø½á¹û£¬»Øµ÷·½·¨onActivityResult
+	// ç”¨æˆ¶å–æ¶ˆå®‰è£ä¼šè¿”å›ç»“æœï¼Œå›è°ƒæ–¹æ³•onActivityResult
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		enterHome();
@@ -321,7 +321,7 @@ public class SplashActivity extends Activity {
 	}
 
 	/**
-	 * ½øÈëÖ÷½çÃæ
+	 * è¿›å…¥ä¸»ç•Œé¢
 	 */
 	private void enterHome() {
 		Intent intent = new Intent(this, HomeActivity.class);
