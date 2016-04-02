@@ -276,7 +276,7 @@ public class SplashActivity extends Activity {
 			HttpUtils utils = new HttpUtils();
 			utils.download(mDownLoadUrl, target, new RequestCallBack<File>() {
 
-				// 下载文件的进度
+				// 下载文件的进度，该方法在主线程运行
 				@Override
 				public void onLoading(long total, long current,
 						boolean isUploading) {
@@ -285,7 +285,7 @@ public class SplashActivity extends Activity {
 					tvProgress.setText("下载进度" + current * 100 / total + "%");
 				}
 
-				// 下载成功
+				// 下载成功，该方法在主线程运行
 				@Override
 				public void onSuccess(ResponseInfo<File> arg0) {
 					System.out.println("下载成功");
@@ -300,7 +300,7 @@ public class SplashActivity extends Activity {
 					startActivityForResult(intent, 0);
 				}
 
-				// 下载失败
+				// 下载失败，该方法在主线程运行
 				@Override
 				public void onFailure(HttpException arg0, String arg1) {
 					Toast.makeText(SplashActivity.this, "下载失败",
