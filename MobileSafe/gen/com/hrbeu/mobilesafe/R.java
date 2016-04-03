@@ -63,23 +63,31 @@ containing a value of this type.
         public static final int launch_bg1=0x7f02000b;
     }
     public static final class id {
-        public static final int action_settings=0x7f090009;
-        public static final int cb_status=0x7f090008;
+        public static final int action_settings=0x7f09000f;
+        public static final int btn_cancel=0x7f090008;
+        public static final int btn_ok=0x7f090007;
+        public static final int cb_status=0x7f09000e;
+        public static final int et_confirm=0x7f090009;
+        public static final int et_password=0x7f090006;
         public static final int gv_home=0x7f090000;
-        public static final int iv_item=0x7f090004;
+        public static final int iv_item=0x7f09000a;
+        public static final int rl_root=0x7f090002;
         public static final int siv_update=0x7f090001;
-        public static final int tv_disc=0x7f090007;
-        public static final int tv_item=0x7f090005;
-        public static final int tv_progress=0x7f090003;
-        public static final int tv_title=0x7f090006;
-        public static final int tv_version=0x7f090002;
+        public static final int textView1=0x7f090005;
+        public static final int tv_disc=0x7f09000d;
+        public static final int tv_item=0x7f09000b;
+        public static final int tv_progress=0x7f090004;
+        public static final int tv_title=0x7f09000c;
+        public static final int tv_version=0x7f090003;
     }
     public static final class layout {
         public static final int activity_home=0x7f030000;
         public static final int activity_setting=0x7f030001;
         public static final int activity_splash=0x7f030002;
-        public static final int home_list_item=0x7f030003;
-        public static final int view_setting_item=0x7f030004;
+        public static final int dialog_input_password=0x7f030003;
+        public static final int dialog_set_password=0x7f030004;
+        public static final int home_list_item=0x7f030005;
+        public static final int view_setting_item=0x7f030006;
     }
     public static final class menu {
         public static final int main=0x7f080000;

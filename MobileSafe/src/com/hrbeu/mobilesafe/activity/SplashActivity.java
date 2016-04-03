@@ -26,6 +26,8 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -90,6 +92,7 @@ public class SplashActivity extends Activity {
 	};
 
 	private SharedPreferences mPref;
+	private RelativeLayout rlRoot;// 根布局
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -99,15 +102,22 @@ public class SplashActivity extends Activity {
 		tvVersion.setText("版本号:" + getVersionName());
 		tvProgress = (TextView) findViewById(R.id.tv_progress);// 默认隐藏
 
+		rlRoot = (RelativeLayout) findViewById(R.id.rl_root);
+
 		mPref = getSharedPreferences("config", MODE_PRIVATE);
 		// 判断是否需要自动更新
 		boolean autoUpdate = mPref.getBoolean("auto_update", true);
 		if (autoUpdate) {
 			checkVersion();
 		} else {
-			//延时两秒后发送消息
+			// 延时两秒后发送消息
 			mHandler.sendEmptyMessageDelayed(CODE_ENTER_HOME, 2000);
 		}
+
+		// 渐变的动画效果
+		AlphaAnimation anim = new AlphaAnimation(0.3f, 1);
+		anim.setDuration(2000);
+		rlRoot.startAnimation(anim);
 	}
 
 	/**
