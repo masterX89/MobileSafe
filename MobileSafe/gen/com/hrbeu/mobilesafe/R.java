@@ -9,6 +9,30 @@ package com.hrbeu.mobilesafe;
 
 public final class R {
     public static final class attr {
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int desc_off=0x7f010002;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int desc_on=0x7f010001;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int title=0x7f010000;
     }
     public static final class color {
         public static final int black=0x7f040000;
@@ -39,15 +63,16 @@ public final class R {
         public static final int launch_bg1=0x7f02000b;
     }
     public static final class id {
-        public static final int action_settings=0x7f090008;
-        public static final int cb_status=0x7f090003;
+        public static final int action_settings=0x7f090009;
+        public static final int cb_status=0x7f090008;
         public static final int gv_home=0x7f090000;
-        public static final int iv_item=0x7f090006;
-        public static final int tv_disc=0x7f090002;
-        public static final int tv_item=0x7f090007;
-        public static final int tv_progress=0x7f090005;
-        public static final int tv_title=0x7f090001;
-        public static final int tv_version=0x7f090004;
+        public static final int iv_item=0x7f090004;
+        public static final int siv_update=0x7f090001;
+        public static final int tv_disc=0x7f090007;
+        public static final int tv_item=0x7f090005;
+        public static final int tv_progress=0x7f090003;
+        public static final int tv_title=0x7f090006;
+        public static final int tv_version=0x7f090002;
     }
     public static final class layout {
         public static final int activity_home=0x7f030000;
@@ -96,4 +121,65 @@ public final class R {
         public static final int AppTheme=0x7f070001;
         public static final int TitleStyle=0x7f070002;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a SettingItemView.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #SettingItemView_desc_off com.hrbeu.mobilesafe:desc_off}</code></td><td></td></tr>
+           <tr><td><code>{@link #SettingItemView_desc_on com.hrbeu.mobilesafe:desc_on}</code></td><td></td></tr>
+           <tr><td><code>{@link #SettingItemView_title com.hrbeu.mobilesafe:title}</code></td><td></td></tr>
+           </table>
+           @see #SettingItemView_desc_off
+           @see #SettingItemView_desc_on
+           @see #SettingItemView_title
+         */
+        public static final int[] SettingItemView = {
+            0x7f010000, 0x7f010001, 0x7f010002
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.hrbeu.mobilesafe.R.attr#desc_off}
+          attribute's value can be found in the {@link #SettingItemView} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.hrbeu.mobilesafe:desc_off
+        */
+        public static final int SettingItemView_desc_off = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.hrbeu.mobilesafe.R.attr#desc_on}
+          attribute's value can be found in the {@link #SettingItemView} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.hrbeu.mobilesafe:desc_on
+        */
+        public static final int SettingItemView_desc_on = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.hrbeu.mobilesafe.R.attr#title}
+          attribute's value can be found in the {@link #SettingItemView} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.hrbeu.mobilesafe:title
+        */
+        public static final int SettingItemView_title = 0;
+    };
 }

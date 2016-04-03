@@ -16,6 +16,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -88,6 +89,8 @@ public class SplashActivity extends Activity {
 		};
 	};
 
+	private SharedPreferences mPref;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -95,7 +98,16 @@ public class SplashActivity extends Activity {
 		tvVersion = (TextView) findViewById(R.id.tv_version);
 		tvVersion.setText("版本号:" + getVersionName());
 		tvProgress = (TextView) findViewById(R.id.tv_progress);// 默认隐藏
-		checkVersion();
+
+		mPref = getSharedPreferences("config", MODE_PRIVATE);
+		// 判断是否需要自动更新
+		boolean autoUpdate = mPref.getBoolean("auto_update", true);
+		if (autoUpdate) {
+			checkVersion();
+		} else {
+			//延时两秒后发送消息
+			mHandler.sendEmptyMessageDelayed(CODE_ENTER_HOME, 2000);
+		}
 	}
 
 	/**

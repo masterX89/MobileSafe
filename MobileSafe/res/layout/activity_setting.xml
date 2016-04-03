@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:hrbeu="http://schemas.android.com/apk/res/com.hrbeu.mobilesafe"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
@@ -8,41 +9,12 @@
         style="@style/TitleStyle"
         android:text="设置中心" />
 
-    <RelativeLayout
+    <com.hrbeu.mobilesafe.view.SettingItemView
+        android:id="@+id/siv_update"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:padding="5dp" >
-
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="自动更新设置"
-            android:textColor="@color/black"
-            android:textSize="22sp" />
-
-        <TextView
-            android:id="@+id/tv_disc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_title"
-            android:layout_marginTop="3dp"
-            android:text="自动更新已经开启"
-            android:textColor="#a000"
-            android:textSize="18sp" />
-
-        <CheckBox
-            android:id="@+id/cb_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.2dp"
-            android:layout_alignParentBottom="true"
-            android:background="#a000" />
-    </RelativeLayout>
+        android:layout_height="wrap_content"
+        hrbeu:desc_off="自动更新已关闭"
+        hrbeu:desc_on="自动更新已开启"
+        hrbeu:title="自动更新设置" />
 
 </LinearLayout>
