@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hrbeu.mobilesafe.R;
+import com.hrbeu.mobilesafe.utils.MD5Utils;
 
 /**
  * 主页面
@@ -115,11 +116,15 @@ public class HomeActivity extends Activity {
 				String password = etPassword.getText().toString();
 				if (!TextUtils.isEmpty(password)) {
 					String savedPassword = mPref.getString("password", null);
-					if (password.equals(savedPassword)) {
-						Toast.makeText(HomeActivity.this, "登录成功！",
-								Toast.LENGTH_SHORT).show();
+
+					if (MD5Utils.encode(password).equals(savedPassword)) {
+						 Toast.makeText(HomeActivity.this, "登录成功！",
+						 Toast.LENGTH_SHORT).show();
 						// 隐藏dialog
 						dialog.dismiss();
+						// 跳转到手机防盗页面
+						startActivity(new Intent(HomeActivity.this,
+								LostFindActivity.class));
 					} else {
 						Toast.makeText(HomeActivity.this, "密码错误！",
 								Toast.LENGTH_SHORT).show();
@@ -175,12 +180,18 @@ public class HomeActivity extends Activity {
 				if (!TextUtils.isEmpty(password)
 						&& !TextUtils.isEmpty(passwordConfirm)) {
 					if (password.equals(passwordConfirm)) {
-						Toast.makeText(HomeActivity.this, "登录成功！",
-								Toast.LENGTH_SHORT).show();
-
-						mPref.edit().putString("password", password).commit();
+						 Toast.makeText(HomeActivity.this, "设置成功！",
+						 Toast.LENGTH_SHORT).show();
+						// 将密码保存起来
+						mPref.edit()
+								.putString("password",
+										MD5Utils.encode(password)).commit();
 
 						dialog.dismiss();
+						
+						// 跳转到手机防盗页面
+						startActivity(new Intent(HomeActivity.this,
+								LostFindActivity.class));
 					} else {
 						Toast.makeText(HomeActivity.this, "两次密码不一致！",
 								Toast.LENGTH_SHORT).show();

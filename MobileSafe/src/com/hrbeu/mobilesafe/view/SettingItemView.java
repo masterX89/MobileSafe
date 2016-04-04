@@ -40,7 +40,7 @@ public class SettingItemView extends RelativeLayout {
 		mDescOff = attrs.getAttributeValue(NAMESPACE, "desc_off");
 
 		initView();
-		
+
 		// int attributeCount = attrs.getAttributeCount();
 		// for (int i = 0; i < attributeCount; i++) {
 		// String attributeName = attrs.getAttributeName(i);
