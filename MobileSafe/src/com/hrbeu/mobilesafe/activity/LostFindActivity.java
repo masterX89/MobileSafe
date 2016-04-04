@@ -1,10 +1,12 @@
 package com.hrbeu.mobilesafe.activity;
 
-import com.hrbeu.mobilesafe.R;
-
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+
+import com.hrbeu.mobilesafe.R;
 
 /**
  * 手机防盗页面
@@ -26,7 +28,19 @@ public class LostFindActivity extends Activity {
 			setContentView(R.layout.activity_lost_find);
 		} else {
 			// 跳转设置向导页面
+			startActivity(new Intent(LostFindActivity.this,
+					Setup1Activity.class));
 			finish();
 		}
+	}
+
+	/**
+	 * 重新进入设置向导
+	 * 
+	 * @param view
+	 */
+	public void reEnter(View view) {
+		startActivity(new Intent(LostFindActivity.this, Setup1Activity.class));
+		finish();
 	}
 }
