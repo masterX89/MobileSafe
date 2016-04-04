@@ -42,5 +42,8 @@ public class Setup3Activity extends Activity {
 	public void previous(View view) {
 		startActivity(new Intent(Setup3Activity.this, Setup2Activity.class));
 		finish();
+		// 两个界面切换的动画
+		overridePendingTransition(R.anim.tran_previous_in,
+				R.anim.tran_previous_out);
 	}
 }
