@@ -1,29 +1,28 @@
 package com.hrbeu.mobilesafe.activity;
 
+import com.hrbeu.mobilesafe.R;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.GestureDetector;
-import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
-import android.view.View;
-
-import com.hrbeu.mobilesafe.R;
+import android.view.GestureDetector.SimpleOnGestureListener;
 
 /**
- * 第二个设置向导页
+ * 设置引导页的基类，不需要在清单文件中注册，因为不需要界面展示
  * 
  * @author Hankai Xia
  * 
  */
-public class Setup2Activity extends Activity {
+public class BaseSetupActivity extends Activity {
 
 	private GestureDetector mDetector;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_setup2);
+
 		// 手势识别器
 		mDetector = new GestureDetector(this, new SimpleOnGestureListener() {
 
@@ -69,28 +68,4 @@ public class Setup2Activity extends Activity {
 		overridePendingTransition(R.anim.tran_in, R.anim.tran_out);
 	}
 
-	/**
-	 * 点击按钮到下一页
-	 * 
-	 * @param view
-	 */
-	public void next(View view) {
-		showNextPage();
-	}
-
-	/**
-	 * 点击按钮到上一页
-	 * 
-	 * @param view
-	 */
-	public void previous(View view) {
-		showPreviousPage();
-	}
-
-	@Override
-	public boolean onTouchEvent(MotionEvent event) {
-		// 委托手势识别器处理触摸事件
-		mDetector.onTouchEvent(event);
-		return super.onTouchEvent(event);
-	}
 }

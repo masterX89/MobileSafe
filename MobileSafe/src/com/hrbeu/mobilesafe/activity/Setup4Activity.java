@@ -33,7 +33,7 @@ public class Setup4Activity extends Activity {
 	 * @param view
 	 */
 	public void next(View view) {
-		startActivity(new Intent(Setup4Activity.this, LostFindActivity.class));
+		startActivity(new Intent(this, LostFindActivity.class));
 		finish();
 		// 两个界面切换的动画
 		overridePendingTransition(R.anim.tran_in, R.anim.tran_out);
@@ -47,7 +47,7 @@ public class Setup4Activity extends Activity {
 	 * @param view
 	 */
 	public void previous(View view) {
-		startActivity(new Intent(Setup4Activity.this, Setup3Activity.class));
+		startActivity(new Intent(this, Setup3Activity.class));
 		finish();
 		// 两个界面切换的动画
 		overridePendingTransition(R.anim.tran_previous_in,
