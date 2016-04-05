@@ -14,25 +14,26 @@ import com.hrbeu.mobilesafe.R;
  * @author Hankai Xia
  * 
  */
-public class Setup4Activity extends Activity {
-
-	private SharedPreferences mPref;
+public class Setup4Activity extends BaseSetupActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_setup4);
-
-		mPref = getSharedPreferences("config", MODE_PRIVATE);
 	}
 
-	/**
-	 * 设置完成
-	 * 
-	 * @param view
-	 */
-	public void next(View view) {
+	@Override
+	public void showPreviousPage() {
+		startActivity(new Intent(this, Setup3Activity.class));
+		finish();
+		// 两个界面切换的动画
+		overridePendingTransition(R.anim.tran_previous_in,
+				R.anim.tran_previous_out);
+	}
+
+	@Override
+	public void showNextPage() {
 		startActivity(new Intent(this, LostFindActivity.class));
 		finish();
 		// 两个界面切换的动画
@@ -41,16 +42,4 @@ public class Setup4Activity extends Activity {
 		mPref.edit().putBoolean("configed", true).commit();
 	}
 
-	/**
-	 * 跳转到上一页
-	 * 
-	 * @param view
-	 */
-	public void previous(View view) {
-		startActivity(new Intent(this, Setup3Activity.class));
-		finish();
-		// 两个界面切换的动画
-		overridePendingTransition(R.anim.tran_previous_in,
-				R.anim.tran_previous_out);
-	}
 }

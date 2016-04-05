@@ -13,7 +13,7 @@ import com.hrbeu.mobilesafe.R;
  * @author Hankai Xia
  * 
  */
-public class Setup3Activity extends Activity {
+public class Setup3Activity extends BaseSetupActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,28 +22,20 @@ public class Setup3Activity extends Activity {
 		setContentView(R.layout.activity_setup3);
 	}
 
-	/**
-	 * 跳转到下一页
-	 * 
-	 * @param view
-	 */
-	public void next(View view) {
-		startActivity(new Intent(this, Setup4Activity.class));
-		finish();
-		// 两个界面切换的动画
-		overridePendingTransition(R.anim.tran_in, R.anim.tran_out);
-	}
-
-	/**
-	 * 跳转到上一页
-	 * 
-	 * @param view
-	 */
-	public void previous(View view) {
+	@Override
+	public void showPreviousPage() {
 		startActivity(new Intent(this, Setup2Activity.class));
 		finish();
 		// 两个界面切换的动画
 		overridePendingTransition(R.anim.tran_previous_in,
 				R.anim.tran_previous_out);
+	}
+
+	@Override
+	public void showNextPage() {
+		startActivity(new Intent(this, Setup4Activity.class));
+		finish();
+		// 两个界面切换的动画
+		overridePendingTransition(R.anim.tran_in, R.anim.tran_out);
 	}
 }

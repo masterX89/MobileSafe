@@ -4,10 +4,13 @@ import com.hrbeu.mobilesafe.R;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.GestureDetector.SimpleOnGestureListener;
+import android.widget.Toast;
 
 /**
  * 设置引导页的基类，不需要在清单文件中注册，因为不需要界面展示
@@ -15,13 +18,16 @@ import android.view.GestureDetector.SimpleOnGestureListener;
  * @author Hankai Xia
  * 
  */
-public class BaseSetupActivity extends Activity {
+public abstract class BaseSetupActivity extends Activity {
 
 	private GestureDetector mDetector;
+	public SharedPreferences mPref;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		mPref = getSharedPreferences("config", MODE_PRIVATE);
 
 		// 手势识别器
 		mDetector = new GestureDetector(this, new SimpleOnGestureListener() {
@@ -32,6 +38,17 @@ public class BaseSetupActivity extends Activity {
 			@Override
 			public boolean onFling(MotionEvent e1, MotionEvent e2,
 					float velocityX, float velocityY) {
+				// 判断纵向滑动幅度是否过大
+				if (Math.abs(e2.getRawY() - e1.getRawY()) > 100) {
+					Toast.makeText(BaseSetupActivity.this, "不能这个样子滑动哦~",
+							Toast.LENGTH_SHORT).show();
+					return true;
+				}
+				if (Math.abs(velocityX) < 100) {
+					Toast.makeText(BaseSetupActivity.this, "你滑的太慢啦~",
+							Toast.LENGTH_SHORT).show();
+					return true;
+				}
 				// 向右滑动，上一页
 				if (e2.getRawX() - e1.getRawX() > 200) {
 					showPreviousPage();
@@ -48,24 +65,38 @@ public class BaseSetupActivity extends Activity {
 	}
 
 	/**
-	 * 展示上一页
+	 * 展示上一页，子类必须实现
 	 */
-	public void showPreviousPage() {
-		startActivity(new Intent(this, Setup1Activity.class));
-		finish();
-		// 两个界面切换的动画
-		overridePendingTransition(R.anim.tran_previous_in,
-				R.anim.tran_previous_out);
+	public abstract void showPreviousPage();
+
+	/**
+	 * 展示下一页，子类必须实现
+	 */
+	public abstract void showNextPage();
+
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		// 委托手势识别器处理触摸事件
+		mDetector.onTouchEvent(event);
+		return super.onTouchEvent(event);
 	}
 
 	/**
-	 * 展示下一页
+	 * 点击按钮到下一页
+	 * 
+	 * @param view
 	 */
-	public void showNextPage() {
-		startActivity(new Intent(this, Setup3Activity.class));
-		finish();
-		// 两个界面切换的动画
-		overridePendingTransition(R.anim.tran_in, R.anim.tran_out);
+	public void next(View view) {
+		showNextPage();
+	}
+
+	/**
+	 * 点击按钮到上一页
+	 * 
+	 * @param view
+	 */
+	public void previous(View view) {
+		showPreviousPage();
 	}
 
 }
