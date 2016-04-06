@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.telephony.SmsManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
@@ -29,11 +30,17 @@ public class BootCompleteReceiver extends BroadcastReceiver {
 				TelephonyManager tm = (TelephonyManager) context
 						.getSystemService(Context.TELEPHONY_SERVICE);
 				// 拿到当前的SIM卡
-				String currentSim = tm.getSimSerialNumber();
+				String currentSim = tm.getSimSerialNumber() + "11";
 				if (sim.equals(currentSim)) {
 					System.out.println("手机安全");
 				} else {
 					System.out.println("SIM卡已经变化，发送报警短信");
+					// 读取安全号码
+					String phone = sp.getString("safe_phone", "");
+					// 发送短信给安全号码
+					SmsManager smsManager = SmsManager.getDefault();
+					smsManager.sendTextMessage(phone, null, "sim card change",
+							null, null);
 				}
 			}
 		}
