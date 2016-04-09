@@ -3,10 +3,12 @@ package com.hrbeu.mobilesafe.receiver;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.telephony.gsm.SmsMessage;
 
 import com.hrbeu.mobilesafe.R;
+import com.hrbeu.mobilesafe.service.LocationService;
 
 /**
  * 拦截短信
@@ -39,6 +41,18 @@ public class SmsReceiver extends BroadcastReceiver {
 				abortBroadcast();
 			} else if ("#*location*#".equals(messageBody)) {
 				// 获取经纬度坐标
+				// 开启定位服务
+				context.startService(new Intent(context, LocationService.class));
+				SharedPreferences sp = context.getSharedPreferences("config",
+						Context.MODE_PRIVATE);
+				String location = sp.getString("location",
+						"getting location...");
+				System.out.println("location:" + location);
+				abortBroadcast();
+			} else if ("#*wipedata*#".equals(messageBody)) {
+				abortBroadcast();
+			} else if ("#*lockscreen*#".equals(messageBody)) {
+				abortBroadcast();
 			}
 		}
 	}
