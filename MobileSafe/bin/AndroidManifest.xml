@@ -42,6 +42,19 @@
         <activity android:name=".activity.Setup4Activity" />
         <activity android:name=".activity.ContactActivity" />
 
+        <receiver
+            android:name="com.hrbeu.mobilesafe.receiver.AdminReceiver"
+            android:description="@string/sample_device_admin_description"
+            android:label="@string/sample_device_admin"
+            android:permission="android.permission.BIND_DEVICE_ADMIN" >
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin_sample" />
+
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
         <receiver android:name=".receiver.BootCompleteReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

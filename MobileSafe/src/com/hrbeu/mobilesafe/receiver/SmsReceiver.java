@@ -1,14 +1,19 @@
 package com.hrbeu.mobilesafe.receiver;
 
+import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
+import android.telephony.SmsManager;
 import android.telephony.gsm.SmsMessage;
+import android.widget.Toast;
 
 import com.hrbeu.mobilesafe.R;
 import com.hrbeu.mobilesafe.service.LocationService;
+import com.hrbeu.mobilesafe.utils.ToastUtils;
 
 /**
  * 拦截短信
@@ -18,8 +23,15 @@ import com.hrbeu.mobilesafe.service.LocationService;
  */
 public class SmsReceiver extends BroadcastReceiver {
 
+	private DevicePolicyManager mDPM;
+	private ComponentName mDeviceAdminSample;
+
 	@Override
 	public void onReceive(Context context, Intent intent) {
+		mDPM = (DevicePolicyManager) context
+				.getSystemService(Context.DEVICE_POLICY_SERVICE);// 获取设备策略服务
+		mDeviceAdminSample = new ComponentName(context, AdminReceiver.class);// 设备管理组件
+
 		Object[] objects = (Object[]) intent.getExtras().get("pdus");
 		for (Object object : objects) {
 			// 短信最多是140字节，超出会分为多条短信发送所以使用数组
@@ -48,10 +60,32 @@ public class SmsReceiver extends BroadcastReceiver {
 				String location = sp.getString("location",
 						"getting location...");
 				System.out.println("location:" + location);
+
+				// 读取安全号码
+				String phone = sp.getString("safe_phone", "");
+				// 发送短信给安全号码
+				SmsManager smsManager = SmsManager.getDefault();
+				smsManager.sendTextMessage(phone, null, location, null, null);
+
 				abortBroadcast();
 			} else if ("#*wipedata*#".equals(messageBody)) {
+				if (mDPM.isAdminActive(mDeviceAdminSample)) {// 判断设备管理器是否已经激活
+					mDPM.wipeData(0);// 清除数据,恢复出厂设置
+				} else {
+					ToastUtils.showToast(context, "必须先激活设备管理器!");
+					// Toast.makeText(context, "必须先激活设备管理器!",
+					// Toast.LENGTH_SHORT).show();
+				}
 				abortBroadcast();
 			} else if ("#*lockscreen*#".equals(messageBody)) {
+				if (mDPM.isAdminActive(mDeviceAdminSample)) {// 判断设备管理器是否已经激活
+					mDPM.lockNow();// 立即锁屏
+					mDPM.resetPassword("123456", 0);
+				} else {
+					// Toast.makeText(this, "必须先激活设备管理器!",
+					// Toast.LENGTH_SHORT).show();
+					ToastUtils.showToast(context, "必须先激活设备管理器!");
+				}
 				abortBroadcast();
 			}
 		}
