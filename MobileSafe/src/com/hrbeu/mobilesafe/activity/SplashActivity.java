@@ -1,6 +1,7 @@
 package com.hrbeu.mobilesafe.activity;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -105,6 +106,9 @@ public class SplashActivity extends Activity {
 		rlRoot = (RelativeLayout) findViewById(R.id.rl_root);
 
 		mPref = getSharedPreferences("config", MODE_PRIVATE);
+		// 拷贝归属地查询数据库
+		copyDB();
+
 		// 判断是否需要自动更新
 		boolean autoUpdate = mPref.getBoolean("auto_update", true);
 		if (autoUpdate) {
@@ -349,5 +353,25 @@ public class SplashActivity extends Activity {
 		Intent intent = new Intent(this, HomeActivity.class);
 		startActivity(intent);
 		finish();
+	}
+
+	private void copyDB() {
+		// File filesDir = getFilesDir();
+		// System.out.println(filesDir.getAbsolutePath());
+		// 要拷贝的目标地址
+		File destFile = new File(getFilesDir(), "address.db");
+		FileOutputStream out;
+		try {
+			InputStream in = getAssets().open("address.db");
+			out = new FileOutputStream(destFile);
+			
+			int len = 0;
+			byte[] buffer = new byte[1024];
+			while ((len=in.read(buffer))!=-1) {
+				out.write(buffer,0,len);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

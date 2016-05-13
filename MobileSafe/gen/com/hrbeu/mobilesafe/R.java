@@ -115,20 +115,21 @@ containing a value of this type.
         public static final int tv_version=0x7f0c000a;
     }
     public static final class layout {
-        public static final int activity_contact=0x7f030000;
-        public static final int activity_home=0x7f030001;
-        public static final int activity_lost_find=0x7f030002;
-        public static final int activity_setting=0x7f030003;
-        public static final int activity_setup1=0x7f030004;
-        public static final int activity_setup2=0x7f030005;
-        public static final int activity_setup3=0x7f030006;
-        public static final int activity_setup4=0x7f030007;
-        public static final int activity_splash=0x7f030008;
-        public static final int contact_list_item=0x7f030009;
-        public static final int dialog_input_password=0x7f03000a;
-        public static final int dialog_set_password=0x7f03000b;
-        public static final int home_list_item=0x7f03000c;
-        public static final int view_setting_item=0x7f03000d;
+        public static final int activity_atools=0x7f030000;
+        public static final int activity_contact=0x7f030001;
+        public static final int activity_home=0x7f030002;
+        public static final int activity_lost_find=0x7f030003;
+        public static final int activity_setting=0x7f030004;
+        public static final int activity_setup1=0x7f030005;
+        public static final int activity_setup2=0x7f030006;
+        public static final int activity_setup3=0x7f030007;
+        public static final int activity_setup4=0x7f030008;
+        public static final int activity_splash=0x7f030009;
+        public static final int contact_list_item=0x7f03000a;
+        public static final int dialog_input_password=0x7f03000b;
+        public static final int dialog_set_password=0x7f03000c;
+        public static final int home_list_item=0x7f03000d;
+        public static final int view_setting_item=0x7f03000e;
     }
     public static final class menu {
         public static final int main=0x7f0b0000;
