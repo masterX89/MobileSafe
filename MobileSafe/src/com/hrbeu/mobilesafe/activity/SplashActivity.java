@@ -107,7 +107,7 @@ public class SplashActivity extends Activity {
 
 		mPref = getSharedPreferences("config", MODE_PRIVATE);
 		// 拷贝归属地查询数据库
-		copyDB();
+		copyDB("address.db");
 
 		// 判断是否需要自动更新
 		boolean autoUpdate = mPref.getBoolean("auto_update", true);
@@ -355,23 +355,41 @@ public class SplashActivity extends Activity {
 		finish();
 	}
 
-	private void copyDB() {
+	/**
+	 * 拷贝数据库
+	 * 
+	 * @param dbName
+	 */
+	private void copyDB(String dbName) {
 		// File filesDir = getFilesDir();
 		// System.out.println(filesDir.getAbsolutePath());
 		// 要拷贝的目标地址
-		File destFile = new File(getFilesDir(), "address.db");
-		FileOutputStream out;
+		File destFile = new File(getFilesDir(), dbName);
+		if (destFile.exists()) {
+			System.out.println("数据库" + dbName + "已存在");
+			return;
+		}
+		FileOutputStream out = null;
+		InputStream in = null;
 		try {
-			InputStream in = getAssets().open("address.db");
+			in = getAssets().open(dbName);
 			out = new FileOutputStream(destFile);
-			
+
 			int len = 0;
 			byte[] buffer = new byte[1024];
-			while ((len=in.read(buffer))!=-1) {
-				out.write(buffer,0,len);
+			while ((len = in.read(buffer)) != -1) {
+				out.write(buffer, 0, len);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				in.close();
+				out.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
 		}
 	}
 }

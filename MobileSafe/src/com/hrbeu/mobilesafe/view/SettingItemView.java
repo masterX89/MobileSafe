@@ -71,8 +71,8 @@ public class SettingItemView extends RelativeLayout {
 		tvTitle.setText(title);
 	}
 
-	public void setDisc(String disc) {
-		tvDisc.setText(disc);
+	public void setDesc(String desc) {
+		tvDisc.setText(desc);
 	}
 
 	/**
@@ -93,9 +93,9 @@ public class SettingItemView extends RelativeLayout {
 		cbStatus.setChecked(check);
 		// 根据选择的状态，更新文本描述
 		if (check) {
-			setDisc(mDescOn);
+			setDesc(mDescOn);
 		} else {
-			setDisc(mDescOff);
+			setDesc(mDescOff);
 
 		}
 	}
