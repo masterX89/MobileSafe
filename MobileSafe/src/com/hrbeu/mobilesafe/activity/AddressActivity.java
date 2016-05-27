@@ -17,9 +17,8 @@ import com.hrbeu.mobilesafe.db.dao.AddressDao;
 
 /**
  * 归属地查询页面
- * 
+ *
  * @author Hankai Xia
- * 
  */
 public class AddressActivity extends Activity {
 	private EditText etNumber;
@@ -39,7 +38,7 @@ public class AddressActivity extends Activity {
 			 */
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before,
-					int count) {
+									  int count) {
 				String address = AddressDao.getAddress(s.toString());
 				tvResult.setText(address);
 			}
@@ -49,7 +48,7 @@ public class AddressActivity extends Activity {
 			 */
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count,
-					int after) {
+										  int after) {
 
 			}
 
@@ -66,7 +65,7 @@ public class AddressActivity extends Activity {
 
 	/**
 	 * 查询号码
-	 * 
+	 *
 	 * @param view
 	 */
 	public void query(View view) {
@@ -87,7 +86,7 @@ public class AddressActivity extends Activity {
 	private void vibrate() {
 		Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
 		// vibrator.vibrate(2000);
-		vibrator.vibrate(new long[] { 500, 500, 500, 500 }, -1);// 等待0.5s，震动0.5s，等待0.5s，震动0.5s，-1不循环，0从第0位循环
+		vibrator.vibrate(new long[]{500, 500, 500, 500}, -1);// 等待0.5s，震动0.5s，等待0.5s，震动0.5s，-1不循环，0从第0位循环
 		// vibrator.cancel();
 	}
 }

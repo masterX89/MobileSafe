@@ -1,0 +1,98 @@
+[
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\home_list_item.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\home_list_item.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_call_safe2.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_call_safe2.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\item_call_safe.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\item_call_safe.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\list_view.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\list_view.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_contact.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_contact.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_atools.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_atools.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_drag_view.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_drag_view.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_splash.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_splash.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_input_password.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\dialog_input_password.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_home.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_home.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_setup2.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_setup2.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\view_setting_item.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\view_setting_item.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\view_setting_click.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\view_setting_click.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\contact_list_item.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\contact_list_item.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_setup4.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_setup4.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_add_black_number.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\dialog_add_black_number.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_call_safe.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_call_safe.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_setup1.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_setup1.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\toast_address.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\toast_address.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_address.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_address.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_lost_find.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_lost_find.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_setup3.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_setup3.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_set_password.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\dialog_set_password.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_setting.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_setting.xml"
+    }
+]

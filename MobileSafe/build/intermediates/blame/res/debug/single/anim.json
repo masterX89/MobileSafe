@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\anim\\tran_previous_out.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\anim\\tran_previous_out.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\anim\\tran_previous_in.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\anim\\tran_previous_in.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\anim\\shake.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\anim\\shake.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\anim\\tran_in.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\anim\\tran_in.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\anim\\tran_out.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\anim\\tran_out.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\anim\\cycle_7.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\anim\\cycle_7.xml"
+    }
+]

@@ -11,19 +11,20 @@ import android.view.View.OnClickListener;
 
 import com.hrbeu.mobilesafe.R;
 import com.hrbeu.mobilesafe.service.AddressService;
+import com.hrbeu.mobilesafe.service.CallSafeService;
 import com.hrbeu.mobilesafe.utils.ServiceStatusUtils;
 import com.hrbeu.mobilesafe.view.SettingClickView;
 import com.hrbeu.mobilesafe.view.SettingItemView;
 
 /**
  * 设置中心
- * 
+ *
  * @author Hankai Xia
- * 
  */
 public class SettingActivity extends Activity {
 
 	private SettingItemView sivUpdate;// 设置升级
+	private SettingItemView sivCallSafe;// 设置黑名单
 	private SettingItemView sivAddress;// 设置归属地
 	private SettingClickView scvAddressStyle;// 修改归属地提示风格
 	private SettingClickView scvAddressLocation;// 修改归属地提示位置
@@ -39,6 +40,30 @@ public class SettingActivity extends Activity {
 		initAddressView();
 		initAddressStyle();
 		initAddressLocation();
+		initBlackNumberView();
+	}
+
+	private void initBlackNumberView() {
+		sivCallSafe = (SettingItemView) findViewById(R.id.siv_callsafe);
+		// 判断CallSafeService是否开启
+		boolean serviceRunning = ServiceStatusUtils.isServiceRunning(this, "com.hrbeu.mobilesafe.service.CallSafeService");
+		if (serviceRunning) {
+			sivCallSafe.setChecked(true);
+		} else {
+			sivCallSafe.setChecked(false);
+		}
+		sivCallSafe.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (sivCallSafe.isChecked()) {
+					sivCallSafe.setChecked(false);
+					stopService(new Intent(SettingActivity.this, CallSafeService.class));// 停止黑名单服务
+				} else {
+					sivCallSafe.setChecked(true);
+					startService(new Intent(SettingActivity.this, CallSafeService.class));// 开启黑名单服务
+				}
+			}
+		});
 	}
 
 	/**
@@ -84,8 +109,7 @@ public class SettingActivity extends Activity {
 	private void initAddressView() {
 		sivAddress = (SettingItemView) findViewById(R.id.siv_address);
 		// 判断AddressService是否开启
-		boolean serviceRunning = ServiceStatusUtils.isServiceRunning(this,
-				"com.hrbeu.mobilesafe.service.AddressService");
+		boolean serviceRunning = ServiceStatusUtils.isServiceRunning(this, "com.hrbeu.mobilesafe.service.AddressService");
 		if (serviceRunning) {
 			sivAddress.setChecked(true);
 		} else {
@@ -96,19 +120,16 @@ public class SettingActivity extends Activity {
 			public void onClick(View v) {
 				if (sivAddress.isChecked()) {
 					sivAddress.setChecked(false);
-					stopService(new Intent(SettingActivity.this,
-							AddressService.class));// 停止归属地服务
+					stopService(new Intent(SettingActivity.this, AddressService.class));// 停止归属地服务
 				} else {
 					sivAddress.setChecked(true);
-					startService(new Intent(SettingActivity.this,
-							AddressService.class));// 开启归属地服务
+					startService(new Intent(SettingActivity.this, AddressService.class));// 开启归属地服务
 				}
-
 			}
 		});
 	}
 
-	final String[] items = new String[] { "半透明", "活力橙", "卫士蓝", "金属灰", "苹果绿" };
+	final String[] items = new String[]{"半透明", "活力橙", "卫士蓝", "金属灰", "苹果绿"};
 
 	/**
 	 * 修改归属地提示框的风格
@@ -136,16 +157,15 @@ public class SettingActivity extends Activity {
 		builder.setIcon(R.drawable.ic_launcher);
 		builder.setTitle("归属地提示框风格");
 		int style = mPref.getInt("address_style", 0);// 读取保存的style
-		builder.setSingleChoiceItems(items, style,
-				new DialogInterface.OnClickListener() {
+		builder.setSingleChoiceItems(items, style, new DialogInterface.OnClickListener() {
 
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						mPref.edit().putInt("address_style", which).commit();// 保存用户选择的风格
-						dialog.dismiss();// dialog消失
-						scvAddressStyle.setDesc(items[which]);// 更新组合控件的描述信息
-					}
-				});
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				mPref.edit().putInt("address_style", which).commit();// 保存用户选择的风格
+				dialog.dismiss();// dialog消失
+				scvAddressStyle.setDesc(items[which]);// 更新组合控件的描述信息
+			}
+		});
 		builder.setNegativeButton("取消", null);
 		builder.show();
 	}
@@ -161,8 +181,7 @@ public class SettingActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(SettingActivity.this,
-						DragViewActivity.class));
+				startActivity(new Intent(SettingActivity.this, DragViewActivity.class));
 			}
 		});
 	}

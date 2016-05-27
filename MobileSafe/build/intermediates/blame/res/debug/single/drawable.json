@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_green_selector.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\drawable\\btn_green_selector.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_light_green_selector.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\drawable\\btn_light_green_selector.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\drawable\\button.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\drawable\\button.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_selector.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\drawable\\shape_selector.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\drawable\\gradient_box.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\drawable\\gradient_box.xml"
+    }
+]

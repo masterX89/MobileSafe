@@ -9,7 +9,6 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.telephony.SmsManager;
 import android.telephony.gsm.SmsMessage;
-import android.widget.Toast;
 
 import com.hrbeu.mobilesafe.R;
 import com.hrbeu.mobilesafe.service.LocationService;
@@ -17,9 +16,8 @@ import com.hrbeu.mobilesafe.utils.ToastUtils;
 
 /**
  * 拦截短信
- * 
+ *
  * @author Hankai Xia
- * 
  */
 public class SmsReceiver extends BroadcastReceiver {
 
@@ -28,8 +26,7 @@ public class SmsReceiver extends BroadcastReceiver {
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
-		mDPM = (DevicePolicyManager) context
-				.getSystemService(Context.DEVICE_POLICY_SERVICE);// 获取设备策略服务
+		mDPM = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);// 获取设备策略服务
 		mDeviceAdminSample = new ComponentName(context, AdminReceiver.class);// 设备管理组件
 
 		Object[] objects = (Object[]) intent.getExtras().get("pdus");
@@ -55,10 +52,8 @@ public class SmsReceiver extends BroadcastReceiver {
 				// 获取经纬度坐标
 				// 开启定位服务
 				context.startService(new Intent(context, LocationService.class));
-				SharedPreferences sp = context.getSharedPreferences("config",
-						Context.MODE_PRIVATE);
-				String location = sp.getString("location",
-						"getting location...");
+				SharedPreferences sp = context.getSharedPreferences("config", Context.MODE_PRIVATE);
+				String location = sp.getString("location", "getting location...");
 				System.out.println("location:" + location);
 
 				// 读取安全号码
