@@ -9,10 +9,10 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.telephony.SmsManager;
 import android.telephony.gsm.SmsMessage;
+import android.widget.Toast;
 
 import com.hrbeu.mobilesafe.R;
 import com.hrbeu.mobilesafe.service.LocationService;
-import com.hrbeu.mobilesafe.utils.ToastUtils;
 
 /**
  * 拦截短信
@@ -67,9 +67,8 @@ public class SmsReceiver extends BroadcastReceiver {
 				if (mDPM.isAdminActive(mDeviceAdminSample)) {// 判断设备管理器是否已经激活
 					mDPM.wipeData(0);// 清除数据,恢复出厂设置
 				} else {
-					ToastUtils.showToast(context, "必须先激活设备管理器!");
-					// Toast.makeText(context, "必须先激活设备管理器!",
-					// Toast.LENGTH_SHORT).show();
+					//UIUtils.showToast(context, "必须先激活设备管理器!");
+					Toast.makeText(context, "必须先激活设备管理器!", Toast.LENGTH_SHORT).show();
 				}
 				abortBroadcast();
 			} else if ("#*lockscreen*#".equals(messageBody)) {
@@ -77,9 +76,8 @@ public class SmsReceiver extends BroadcastReceiver {
 					mDPM.lockNow();// 立即锁屏
 					mDPM.resetPassword("123456", 0);
 				} else {
-					// Toast.makeText(this, "必须先激活设备管理器!",
-					// Toast.LENGTH_SHORT).show();
-					ToastUtils.showToast(context, "必须先激活设备管理器!");
+					Toast.makeText(context, "必须先激活设备管理器!", Toast.LENGTH_SHORT).show();
+					//UIUtils.showToast(context, "必须先激活设备管理器!");
 				}
 				abortBroadcast();
 			}

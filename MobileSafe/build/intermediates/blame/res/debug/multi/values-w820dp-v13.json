@@ -14,10 +14,10 @@
                     "file": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\values-w820dp\\dimens.xml",
                     "position": {
                         "startLine": 7,
-                        "startColumn": 4,
-                        "startOffset": 310,
-                        "endColumn": 57,
-                        "endOffset": 363
+                        "startColumn": 1,
+                        "startOffset": 306,
+                        "endColumn": 54,
+                        "endOffset": 359
                     }
                 }
             }

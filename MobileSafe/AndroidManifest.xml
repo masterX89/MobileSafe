@@ -22,6 +22,9 @@
 	<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
 	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.READ_SMS"/>
+	<uses-permission android:name="android.permission.WRITE_SMS"/>
+	<uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
 
 	<application
 		android:allowBackup="true"
@@ -93,6 +96,13 @@
 			android:enabled="true"
 			android:exported="true">
 		</service>
+
+		<activity android:name=".activity.AppManagerActivity">
+		</activity>
+		<activity android:name=".activity.TaskManagerActivity">
+		</activity>
+		<activity android:name=".activity.TaskManagerSettingActivity">
+		</activity>
 	</application>
 
 </manifest>

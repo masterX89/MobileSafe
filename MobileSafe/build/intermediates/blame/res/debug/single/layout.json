@@ -16,12 +16,12 @@
         "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\list_view.xml"
     },
     {
-        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_contact.xml",
-        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_contact.xml"
-    },
-    {
         "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_atools.xml",
         "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_atools.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_contact.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_contact.xml"
     },
     {
         "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_drag_view.xml",
@@ -48,6 +48,10 @@
         "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\view_setting_item.xml"
     },
     {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_app_manager.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_app_manager.xml"
+    },
+    {
         "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\view_setting_click.xml",
         "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\view_setting_click.xml"
     },
@@ -56,12 +60,20 @@
         "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\contact_list_item.xml"
     },
     {
-        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_setup4.xml",
-        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_setup4.xml"
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\item_app_manager.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\item_app_manager.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\item_task_manager.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\item_task_manager.xml"
     },
     {
         "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_add_black_number.xml",
         "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\dialog_add_black_number.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_setup4.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_setup4.xml"
     },
     {
         "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_call_safe.xml",
@@ -80,8 +92,20 @@
         "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_address.xml"
     },
     {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\item_popup.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\item_popup.xml"
+    },
+    {
         "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_lost_find.xml",
         "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_lost_find.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_task_manager_setting.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_task_manager_setting.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_task_manager.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_task_manager.xml"
     },
     {
         "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_setup3.xml",

@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import com.hrbeu.mobilesafe.R;
-import com.hrbeu.mobilesafe.utils.ToastUtils;
+import com.hrbeu.mobilesafe.utils.UIUtils;
 import com.hrbeu.mobilesafe.view.SettingItemView;
 
 /**
@@ -71,7 +71,7 @@ public class Setup2Activity extends BaseSetupActivity {
 		// 如果SIM卡没有绑定，就不允许进入下一个界面
 		String sim = mPref.getString("sim", null);
 		if (TextUtils.isEmpty(sim)) {
-			ToastUtils.showToast(this, "必须绑定SIM卡");
+			UIUtils.showToast(this, "必须绑定SIM卡");
 			return;
 		}
 		startActivity(new Intent(this, Setup3Activity.class));

@@ -33,10 +33,10 @@
                     "file": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\values\\dimens.xml",
                     "position": {
                         "startLine": 3,
-                        "startColumn": 4,
-                        "startOffset": 92,
-                        "endColumn": 57,
-                        "endOffset": 145
+                        "startColumn": 1,
+                        "startOffset": 86,
+                        "endColumn": 54,
+                        "endOffset": 139
                     }
                 }
             },
@@ -52,10 +52,10 @@
                     "file": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\values\\dimens.xml",
                     "position": {
                         "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 151,
-                        "endColumn": 55,
-                        "endOffset": 202
+                        "startColumn": 1,
+                        "startOffset": 142,
+                        "endColumn": 52,
+                        "endOffset": 193
                     }
                 }
             },
@@ -71,10 +71,10 @@
                     "file": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 5,
-                        "startColumn": 4,
-                        "startOffset": 155,
-                        "endColumn": 52,
-                        "endOffset": 203
+                        "startColumn": 1,
+                        "startOffset": 147,
+                        "endColumn": 49,
+                        "endOffset": 195
                     }
                 }
             },
@@ -90,10 +90,10 @@
                     "file": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 3,
-                        "startColumn": 4,
-                        "startOffset": 58,
-                        "endColumn": 41,
-                        "endOffset": 95
+                        "startColumn": 1,
+                        "startOffset": 56,
+                        "endColumn": 38,
+                        "endOffset": 93
                     }
                 }
             },
@@ -109,10 +109,10 @@
                     "file": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 101,
-                        "endColumn": 52,
-                        "endOffset": 149
+                        "startColumn": 1,
+                        "startOffset": 96,
+                        "endColumn": 49,
+                        "endOffset": 144
                     }
                 }
             },
@@ -128,10 +128,10 @@
                     "file": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 7,
-                        "startColumn": 4,
-                        "startOffset": 287,
-                        "endColumn": 55,
-                        "endOffset": 338
+                        "startColumn": 1,
+                        "startOffset": 275,
+                        "endColumn": 52,
+                        "endOffset": 326
                     }
                 }
             },
@@ -147,10 +147,10 @@
                     "file": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 6,
-                        "startColumn": 4,
-                        "startOffset": 208,
-                        "endColumn": 78,
-                        "endOffset": 282
+                        "startColumn": 1,
+                        "startOffset": 198,
+                        "endColumn": 75,
+                        "endOffset": 272
                     }
                 }
             },
@@ -159,8 +159,27 @@
                     "startLine": 11,
                     "startColumn": 4,
                     "startOffset": 672,
+                    "endColumn": 73,
+                    "endOffset": 741
+                },
+                "from": {
+                    "file": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 1,
+                        "startOffset": 329,
+                        "endColumn": 70,
+                        "endOffset": 398
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 746,
                     "endColumn": 61,
-                    "endOffset": 729
+                    "endOffset": 803
                 },
                 "from": {
                     "file": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\values\\styles.xml",
@@ -175,12 +194,12 @@
             },
             {
                 "to": {
-                    "startLine": 12,
+                    "startLine": 13,
                     "startColumn": 4,
-                    "startOffset": 734,
-                    "endLine": 16,
+                    "startOffset": 808,
+                    "endLine": 17,
                     "endColumn": 12,
-                    "endOffset": 883
+                    "endOffset": 957
                 },
                 "from": {
                     "file": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\values\\styles.xml",
@@ -196,12 +215,12 @@
             },
             {
                 "to": {
-                    "startLine": 17,
+                    "startLine": 18,
                     "startColumn": 4,
-                    "startOffset": 888,
-                    "endLine": 24,
+                    "startOffset": 962,
+                    "endLine": 25,
                     "endColumn": 12,
-                    "endOffset": 1277
+                    "endOffset": 1351
                 },
                 "from": {
                     "file": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\values\\styles.xml",
@@ -217,12 +236,12 @@
             },
             {
                 "to": {
-                    "startLine": 25,
+                    "startLine": 26,
                     "startColumn": 4,
-                    "startOffset": 1282,
-                    "endLine": 34,
+                    "startOffset": 1356,
+                    "endLine": 35,
                     "endColumn": 12,
-                    "endOffset": 1810
+                    "endOffset": 1884
                 },
                 "from": {
                     "file": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\values\\styles.xml",
@@ -238,12 +257,12 @@
             },
             {
                 "to": {
-                    "startLine": 35,
+                    "startLine": 36,
                     "startColumn": 4,
-                    "startOffset": 1815,
-                    "endLine": 44,
+                    "startOffset": 1889,
+                    "endLine": 45,
                     "endColumn": 12,
-                    "endOffset": 2353
+                    "endOffset": 2427
                 },
                 "from": {
                     "file": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\values\\styles.xml",
@@ -259,12 +278,12 @@
             },
             {
                 "to": {
-                    "startLine": 45,
+                    "startLine": 46,
                     "startColumn": 4,
-                    "startOffset": 2358,
-                    "endLine": 52,
+                    "startOffset": 2432,
+                    "endLine": 53,
                     "endColumn": 12,
-                    "endOffset": 2730
+                    "endOffset": 2804
                 },
                 "from": {
                     "file": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\values\\styles.xml",

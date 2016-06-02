@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.hrbeu.mobilesafe.R;
-import com.hrbeu.mobilesafe.utils.ToastUtils;
+import com.hrbeu.mobilesafe.utils.UIUtils;
 
 /**
  * 第三个设置向导页
@@ -45,7 +45,7 @@ public class Setup3Activity extends BaseSetupActivity {
 		// 过滤空格
 		String phone = etPhone.getText().toString().trim();
 		if (TextUtils.isEmpty(phone)) {
-			ToastUtils.showToast(this, "安全号码不能为空");
+			UIUtils.showToast(this, "安全号码不能为空");
 			return;
 		}
 		// 保存安全号码

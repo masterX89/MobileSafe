@@ -44,6 +44,10 @@
         "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\drawable-hdpi\\setup1.png"
     },
     {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\img1.png",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\drawable-hdpi\\img1.png"
+    },
+    {
         "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_delete_btn_focused.png",
         "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\drawable-hdpi\\ic_delete_btn_focused.png"
     },
@@ -66,6 +70,10 @@
     {
         "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\launch_bg1.jpg",
         "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\drawable-hdpi\\launch_bg1.jpg"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\img3.png",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\drawable-hdpi\\img3.png"
     },
     {
         "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\lock.png",
@@ -98,6 +106,10 @@
     {
         "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\setup3.png",
         "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\drawable-hdpi\\setup3.png"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\img2.png",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\drawable-hdpi\\img2.png"
     },
     {
         "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\button_normal.png",
@@ -142,6 +154,10 @@
     {
         "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_launcher.png",
         "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\local_popup_bg.9.png",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\drawable-hdpi\\local_popup_bg.9.png"
     },
     {
         "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\home_netmanager.png",
