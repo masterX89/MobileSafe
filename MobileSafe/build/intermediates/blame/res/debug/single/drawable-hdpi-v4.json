@@ -100,6 +100,10 @@
         "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\drawable-hdpi\\call_locate_white.9.png"
     },
     {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\act_scanning_03.png",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\drawable-hdpi\\act_scanning_03.png"
+    },
+    {
         "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\function_greenbutton_pressed.9.png",
         "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\drawable-hdpi\\function_greenbutton_pressed.9.png"
     },
@@ -152,15 +156,19 @@
         "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\drawable-hdpi\\home_sysoptimize.png"
     },
     {
-        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_launcher.png",
-        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\drawable-hdpi\\ic_launcher.png"
-    },
-    {
         "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\local_popup_bg.9.png",
         "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\drawable-hdpi\\local_popup_bg.9.png"
     },
     {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_launcher.png",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
         "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\home_netmanager.png",
         "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\drawable-hdpi\\home_netmanager.png"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_scanner_malware.png",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\drawable-hdpi\\ic_scanner_malware.png"
     }
 ]

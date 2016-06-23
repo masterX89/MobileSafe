@@ -4,29 +4,37 @@
     api-level="19"
     density="xhdpi"
     format="7"
-    timestamp="495057476071975" >
+    timestamp="3373399836123"
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="229" />
     <task
         name="instant-run-dex"
-        duration="0" />
+        duration="329" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="12" />
     <task
         name="verifier"
-        duration="0" />
+        duration="3" />
 
     <artifact
-        location="F:\MyRepository\MobileSafe\MobileSafe\build\outputs\apk\MobileSafe-debug.apk"
-        type="MAIN" />
+        location="F:\MyRepository\MobileSafe\MobileSafe\build\intermediates\reload-dex\debug\classes.dex"
+        type="RELOAD_DEX" />
 
-    <build timestamp="495057476071975" >
+    <build timestamp="3304334575093" >
         <artifact
             location="F:\MyRepository\MobileSafe\MobileSafe\build\outputs\apk\MobileSafe-debug.apk"
             type="MAIN" />
+    </build>
+    <build
+        timestamp="3373399836123"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="F:\MyRepository\MobileSafe\MobileSafe\build\intermediates\reload-dex\debug\classes.dex"
+            type="RELOAD_DEX" />
     </build>
 
 </instant-run>

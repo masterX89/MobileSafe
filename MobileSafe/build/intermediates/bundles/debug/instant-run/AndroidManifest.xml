@@ -51,6 +51,7 @@
         <activity android:name="com.hrbeu.mobilesafe.activity.ContactActivity" />
         <activity android:name="com.hrbeu.mobilesafe.activity.AToolsActivity" />
         <activity android:name="com.hrbeu.mobilesafe.activity.AddressActivity" />
+        <activity android:name="com.hrbeu.mobilesafe.activity.AntivirusActivity" />
         <activity
             android:name="com.hrbeu.mobilesafe.activity.DragViewActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
@@ -103,6 +104,10 @@
         <activity android:name="com.hrbeu.mobilesafe.activity.TaskManagerActivity" >
         </activity>
         <activity android:name="com.hrbeu.mobilesafe.activity.TaskManagerSettingActivity" >
+        </activity>
+        <activity android:name="com.hrbeu.mobilesafe.activity.AntivirusActivity" >
+        </activity>
+        <activity android:name="com.hrbeu.mobilesafe.activity.CleanCacheActivity" >
         </activity>
     </application>
 

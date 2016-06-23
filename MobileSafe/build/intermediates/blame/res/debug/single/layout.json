@@ -16,12 +16,16 @@
         "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\list_view.xml"
     },
     {
-        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_atools.xml",
-        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_atools.xml"
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_clean_cache.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_clean_cache.xml"
     },
     {
         "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_contact.xml",
         "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_contact.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_atools.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_atools.xml"
     },
     {
         "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_drag_view.xml",
@@ -58,6 +62,10 @@
     {
         "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\contact_list_item.xml",
         "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\contact_list_item.xml"
+    },
+    {
+        "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\activity_antivirus.xml",
+        "source": "F:\\MyRepository\\MobileSafe\\MobileSafe\\res\\layout\\activity_antivirus.xml"
     },
     {
         "merged": "F:\\MyRepository\\MobileSafe\\MobileSafe\\build\\intermediates\\res\\merged\\debug\\layout\\item_app_manager.xml",

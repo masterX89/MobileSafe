@@ -1,16 +1,5 @@
 package com.hrbeu.mobilesafe.activity;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -39,10 +28,19 @@ import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 /**
- * 
  * @author Hankai Xia
- * 
  */
 public class SplashActivity extends Activity {
 
@@ -64,32 +62,31 @@ public class SplashActivity extends Activity {
 	private Handler mHandler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
 			switch (msg.what) {
-			case CODE_UPDATE_DIALOG:
-				showUpdateDailog();
-				break;
-			case CODE_UPDATE_ERROR:
-				Toast.makeText(SplashActivity.this, "url错误", Toast.LENGTH_SHORT)
-						.show();
-				enterHome();
-				break;
-			case CODE_NET_ERROR:
-				Toast.makeText(SplashActivity.this, "网络错误", Toast.LENGTH_SHORT)
-						.show();
-				enterHome();
-				break;
-			case CODE_JSON_ERROR:
-				Toast.makeText(SplashActivity.this, "数据解析错误",
-						Toast.LENGTH_SHORT).show();
-				enterHome();
-				break;
-			case CODE_ENTER_HOME:
-				enterHome();
-				break;
+				case CODE_UPDATE_DIALOG:
+					showUpdateDailog();
+					break;
+				case CODE_UPDATE_ERROR:
+					Toast.makeText(SplashActivity.this, "url错误", Toast.LENGTH_SHORT).show();
+					enterHome();
+					break;
+				case CODE_NET_ERROR:
+					Toast.makeText(SplashActivity.this, "网络错误", Toast.LENGTH_SHORT).show();
+					enterHome();
+					break;
+				case CODE_JSON_ERROR:
+					Toast.makeText(SplashActivity.this, "数据解析错误", Toast.LENGTH_SHORT).show();
+					enterHome();
+					break;
+				case CODE_ENTER_HOME:
+					enterHome();
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
-		};
+		}
+
+		;
 	};
 
 	private SharedPreferences mPref;
@@ -108,6 +105,8 @@ public class SplashActivity extends Activity {
 		mPref = getSharedPreferences("config", MODE_PRIVATE);
 		// 拷贝归属地查询数据库
 		copyDB("address.db");
+		// 拷贝病毒数据库
+		copyDB("antivirus.db");
 
 		// 判断是否需要自动更新
 		boolean autoUpdate = mPref.getBoolean("auto_update", true);
@@ -126,7 +125,7 @@ public class SplashActivity extends Activity {
 
 	/**
 	 * 获取版本名称
-	 * 
+	 *
 	 * @return 版本名称
 	 */
 	private String getVersionName() {
@@ -134,8 +133,7 @@ public class SplashActivity extends Activity {
 		PackageManager packageManager = getPackageManager();
 
 		try {
-			PackageInfo packageInfo = packageManager.getPackageInfo(
-					getPackageName(), 0);
+			PackageInfo packageInfo = packageManager.getPackageInfo(getPackageName(), 0);
 			int versionCode = packageInfo.versionCode;
 			String versionName = packageInfo.versionName;
 			// 输出结果到LogCat
@@ -149,7 +147,7 @@ public class SplashActivity extends Activity {
 
 	/**
 	 * 获取本地版本号
-	 * 
+	 *
 	 * @return 版本号
 	 */
 	private int getVersionCode() {
@@ -157,8 +155,7 @@ public class SplashActivity extends Activity {
 		PackageManager packageManager = getPackageManager();
 
 		try {
-			PackageInfo packageInfo = packageManager.getPackageInfo(
-					getPackageName(), 0);
+			PackageInfo packageInfo = packageManager.getPackageInfo(getPackageName(), 0);
 			int versionCode = packageInfo.versionCode;
 			return versionCode;
 		} catch (NameNotFoundException e) {
@@ -205,9 +202,7 @@ public class SplashActivity extends Activity {
 						mDesc = jo.getString("description");
 						mDownLoadUrl = jo.getString("downloadUrl");
 						// 输出json解析结果
-						System.out.println("版本名：" + mVersionName + ",版本号："
-								+ mVersionCode + ",版本描述：" + mDesc + ",下载地址："
-								+ mDownLoadUrl);
+						System.out.println("版本名：" + mVersionName + ",版本号：" + mVersionCode + ",版本描述：" + mDesc + ",下载地址：" + mDownLoadUrl);
 
 						// 判斷是否有更新
 						if (mVersionCode > getVersionCode()) {
@@ -293,19 +288,16 @@ public class SplashActivity extends Activity {
 	 * 下载apk文件
 	 */
 	protected void download() {
-		if (Environment.getExternalStorageState().equals(
-				Environment.MEDIA_MOUNTED)) {
+		if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
 			tvProgress.setVisibility(View.VISIBLE);// 显示进度
-			String target = Environment.getExternalStorageDirectory()
-					+ "/update.apk";
+			String target = Environment.getExternalStorageDirectory() + "/update.apk";
 			// 使用XUtils
 			HttpUtils utils = new HttpUtils();
 			utils.download(mDownLoadUrl, target, new RequestCallBack<File>() {
 
 				// 下载文件的进度，该方法在主线程运行
 				@Override
-				public void onLoading(long total, long current,
-						boolean isUploading) {
+				public void onLoading(long total, long current, boolean isUploading) {
 					super.onLoading(total, current, isUploading);
 					System.out.println("下载进度" + current + "/" + total);
 					tvProgress.setText("下载进度" + current * 100 / total + "%");
@@ -319,8 +311,7 @@ public class SplashActivity extends Activity {
 					Intent intent = new Intent(Intent.ACTION_VIEW);
 					intent.addCategory(Intent.CATEGORY_DEFAULT);
 					// Android 6.0编译失败，应该使用Xutils3
-					intent.setDataAndType(Uri.fromFile(arg0.result),
-							"application/vnd.android.package-archive");
+					intent.setDataAndType(Uri.fromFile(arg0.result), "application/vnd.android.package-archive");
 					// startActivity(intent);
 					// 用戶取消安裝会返回结果，回调方法onActivityResult
 					startActivityForResult(intent, 0);
@@ -329,13 +320,11 @@ public class SplashActivity extends Activity {
 				// 下载失败，该方法在主线程运行
 				@Override
 				public void onFailure(HttpException arg0, String arg1) {
-					Toast.makeText(SplashActivity.this, "下载失败",
-							Toast.LENGTH_LONG).show();
+					Toast.makeText(SplashActivity.this, "下载失败", Toast.LENGTH_LONG).show();
 				}
 			});
 		} else {
-			Toast.makeText(SplashActivity.this, "没有找到sd卡", Toast.LENGTH_LONG)
-					.show();
+			Toast.makeText(SplashActivity.this, "没有找到sd卡", Toast.LENGTH_LONG).show();
 		}
 	}
 
@@ -357,7 +346,7 @@ public class SplashActivity extends Activity {
 
 	/**
 	 * 拷贝数据库
-	 * 
+	 *
 	 * @param dbName
 	 */
 	private void copyDB(String dbName) {
@@ -366,7 +355,7 @@ public class SplashActivity extends Activity {
 		// 要拷贝的目标地址
 		File destFile = new File(getFilesDir(), dbName);
 		if (destFile.exists()) {
-			System.out.println("数据库" + dbName + "已存在");
+			//			System.out.println("数据库" + dbName + "已存在");
 			return;
 		}
 		FileOutputStream out = null;

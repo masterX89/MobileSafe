@@ -89,4 +89,6 @@ public class AppInfo {
 	public void setApkPackageName(String apkPackageName) {
 		this.apkPackageName = apkPackageName;
 	}
+
+
 }

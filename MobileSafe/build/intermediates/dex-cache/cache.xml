@@ -1,3 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="F:\MyRepository\MobileSafe\MobileSafe\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="e9a2ed661f9bd1c2a0b553fbab9aaa097bd16cba">
+        <dex dex="F:\MyRepository\MobileSafe\MobileSafe\build\intermediates\pre-dexed\debug\instant-run-bootstrap_13518ce162182ee97c44eb91818aecf293dc7f4d.jar" />
+    </item>
+    <item
+        jar="F:\MyRepository\MobileSafe\MobileSafe\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="7814ec2f9159565f3540189ebaac1df3e4409679">
+        <dex dex="F:\MyRepository\MobileSafe\MobileSafe\build\intermediates\pre-dexed\debug\instant-run_dd28be50c8535466cd41f0c2ffc3eff73bc7a83a.jar" />
+    </item>
+    <item
+        jar="F:\MyRepository\MobileSafe\MobileSafe\libs\xUtils-2.6.14.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="f10c51f3e0732fdeefe6e104279a58e275879b6c">
+        <dex dex="F:\MyRepository\MobileSafe\MobileSafe\build\intermediates\pre-dexed\debug\xUtils-2.6.14_54f55b8eaf6f2f7ef51f30276da97a238e71d318.jar" />
+    </item>
+    <item
+        jar="F:\MyRepository\MobileSafe\MobileSafe\libs\android-support-v4.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="b6c138ba72ce38beda559df33d369856854fd6f5">
+        <dex dex="F:\MyRepository\MobileSafe\MobileSafe\build\intermediates\pre-dexed\debug\android-support-v4_d8adc92126b6e0dc78641991901a0294bdfe0c2d.jar" />
+    </item>
+
+</items>
